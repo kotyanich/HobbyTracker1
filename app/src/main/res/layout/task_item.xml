@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="#E8D3C9"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/source_serif_pro"
         android:text="text view"
         android:textSize="20sp" />

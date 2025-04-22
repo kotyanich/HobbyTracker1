@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,8 +38,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     private ArrayList<Task> tasks = new ArrayList<>();
     private RecyclerView taskRecyclerView;
     private ViewPager2 projRecyclerView;
-    private ImageButton addTask, addProj, deleteProject;
-    private ImageView taskButton, projectButton, taskList, taskButtonIn, projectsButtonIn, rightArrow, leftArrow;
+    private ImageView taskList, taskButtonIn, projectsButtonIn, rightArrow, leftArrow, addTask, addProj, deleteProject;
+    private FrameLayout taskLayout, projectLayout, taskInLayout, projectInLayout, taskButtonsLayout;
+    private LinearLayout projectButtonsLayout;
     private TaskAdapter adapter;
     private ProjAdapter projAdapter;
     private String hobbyName, projName;
@@ -66,15 +69,20 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         ImageView logo = findViewById(R.id.logohobby);
         ImageButton addTime = findViewById(R.id.addTime);
         ImageButton home = findViewById(R.id.home);
+        ImageButton profile = findViewById(R.id.profile);
         deleteProject = findViewById(R.id.deleteProject);
-        taskButton = findViewById(R.id.task);
-        projectButton = findViewById(R.id.project);
         taskList = findViewById(R.id.taskList);
         taskButtonIn = findViewById(R.id.taskGrey);
         projectsButtonIn = findViewById(R.id.projectGrey);
         rightArrow = findViewById(R.id.rightarrow);
         leftArrow = findViewById(R.id.leftarrow);
         addProj = findViewById(R.id.addProj);
+        taskLayout = findViewById(R.id.taskactive);
+        taskInLayout = findViewById(R.id.tasksinnactive);
+        projectLayout = findViewById(R.id.projactive);
+        projectInLayout = findViewById(R.id.projinnactive);
+        projectButtonsLayout = findViewById(R.id.projectbuttons);
+        taskButtonsLayout = findViewById(R.id.taskaddbutton);
 
         hobbyName = getIntent().getStringExtra("hobbyName");
         hobby.setText(hobbyName);
@@ -124,8 +132,15 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
 
         addTask.setOnClickListener(v -> showAddTaskDialog());
         addTime.setOnClickListener(v -> showAddTimeDialog());
-        addProj.setOnClickListener(v -> showAddProjectDialog());
-        home.setOnClickListener(v -> goToHome());
+        addProj.setOnClickListener(v -> showAddProjDialog());
+        home.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+        profile.setOnClickListener(v ->{
+            Intent intent = new Intent(this, achievements.class);
+            startActivity(intent);
+        });
         deleteProject.setOnClickListener(v -> showDeleteConfirmationDialog());
         taskButtonIn.setOnClickListener(v-> changeView(true));
         projectsButtonIn.setOnClickListener(v-> changeView(false)
@@ -145,22 +160,17 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     }
     private void changeView(boolean isTask){
         taskRecyclerView.setVisibility(isTask? View.VISIBLE : View.INVISIBLE);
-        addTask.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
+        taskButtonsLayout.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
         taskList.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
-        taskButtonIn.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
-        taskButton.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
+        taskInLayout.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
+        taskLayout.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
         projRecyclerView.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
-        addProj.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
-        deleteProject.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
-        projectButton.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
-        projectsButtonIn.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
+        projectButtonsLayout.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
+        projectLayout.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
+        projectInLayout.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
         rightArrow.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
         leftArrow.setVisibility(isTask? View.INVISIBLE: View.VISIBLE);
 
-    }
-    private void goToHome(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 
     private void showCurrProj() {
@@ -174,31 +184,6 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
             }
             projRecyclerView.setCurrentItem(currProjList, true);
         }
-    }
-    private void showAddProjectDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Добавить список проектов");
-
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-
-        builder.setPositiveButton("Добавить", (dialog, which) -> {
-            String projectName = input.getText().toString();
-            if (!projectName.isEmpty()) {
-                ProjectList newProject = new ProjectList(projectName, new ArrayList<>());
-                allProjectLists.add(newProject);
-                saveData("ProjectsData", allProjectLists);
-                currProjList = allProjectLists.size() - 1;
-                currProj = newProject;
-                projName = currProj.getName();
-                goals = currProj.getProjects();
-                projAdapter.notifyDataSetChanged();
-                projRecyclerView.setCurrentItem(currProjList, true);
-            }
-        });
-        builder.setNegativeButton("Отмена", (dialog, which) -> dialog.cancel());
-        builder.show();
     }
 
     private void showDeleteConfirmationDialog(){
@@ -230,6 +215,36 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
             }
             else{
                 Toast.makeText(hobby_details.this, "Задача не может быть пустой", Toast.LENGTH_SHORT).show();
+            }
+            dialog.dismiss();
+        });
+        cancel.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
+    }
+
+    private void showAddProjDialog(){
+        View dialogView = getLayoutInflater().inflate(R.layout.add_proj_dialog, null);
+        EditText projInput = dialogView.findViewById(R.id.projName);
+        ImageView ok = dialogView.findViewById(R.id.okProj);
+        ImageView cancel = dialogView.findViewById(R.id.cancelProj);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        ok.setOnClickListener(v ->{
+            String projText = projInput.getText().toString().trim();
+            if (!projText.isEmpty()) {
+                ProjectList newProject = new ProjectList(projText, new ArrayList<>());
+                allProjectLists.add(newProject);
+                saveData("ProjectsData", allProjectLists);
+                currProjList = allProjectLists.size() - 1;
+                currProj = newProject;
+                projName = currProj.getName();
+                goals = currProj.getProjects();
+                projAdapter.notifyDataSetChanged();
+                projRecyclerView.setCurrentItem(currProjList, true);
+            }
+            else{
+                Toast.makeText(hobby_details.this, "Проект не может быть пустым", Toast.LENGTH_SHORT).show();
             }
             dialog.dismiss();
         });

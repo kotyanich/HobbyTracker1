@@ -38,11 +38,16 @@ public class add_hobby extends AppCompatActivity {
         ico2 = findViewById(R.id.ico2);
         ico3 = findViewById(R.id.ico3);
         ico4 = findViewById(R.id.ico4);
+        ImageView logros = findViewById(R.id.logrosBut);
 
         ico1.setOnClickListener(v -> selectImage(ico1, R.drawable.cactus_ico));
         ico2.setOnClickListener(v -> selectImage(ico2, R.drawable.roll_ico));
         ico3.setOnClickListener(v -> selectImage(ico3, R.drawable.draw_ico));
         ico4.setOnClickListener(v -> selectImage(ico4, R.drawable.guitar_ico));
+        logros.setOnClickListener(v ->{
+            Intent intent = new Intent(this, achievements.class);
+            startActivity(intent);
+        });
 
         submit.setOnClickListener(v -> {
             String hobby = ourHobby.getText().toString().trim();

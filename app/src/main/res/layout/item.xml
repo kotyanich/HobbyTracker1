@@ -20,10 +20,10 @@
         android:layout_height="73dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-        android:backgroundTint="#00FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/cactus_ico" />
+        tools:srcCompat="@drawable/guitar_frame_1_" />
 
     <TextView
         android:id="@+id/hobbyname"

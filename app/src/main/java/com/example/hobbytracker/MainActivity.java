@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         quotes = getResources().getStringArray(R.array.quotes);
         TextView bubbleText = findViewById(R.id.bubbleText);
         bubbleText.setText(getRandomQuote());
-        mascots = new int[]{R.drawable.mascott, R.drawable.peaceful, R.drawable.love};
+        mascots = new int[]{R.drawable.regular, R.drawable.peace, R.drawable.love1};
         ImageView mascot = findViewById(R.id.mascot);
         mascot.setImageResource(getRandomMascot());
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/mix"/>
@@ -26,11 +24,11 @@
             android:layout_gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/goalText"
+                android:id="@+id/projText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Добавить задачу"
+                android:text="Добавить проект"
                 android:textSize="32sp" />
 
             <ImageView
@@ -45,11 +43,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp">
             <EditText
-                android:id="@+id/goalName"
+                android:id="@+id/projName"
                 android:layout_width="315dp"
                 android:layout_height="51dp"
                 android:backgroundTint="#DEB3A3"
-                android:hint="Введите задачу"
+                android:hint="Введите проект"
                 android:inputType="text"/>
         </LinearLayout>
 
@@ -61,13 +59,13 @@
             android:layout_marginTop="20dp">
 
             <ImageView
-                android:id="@+id/okGoal"
+                android:id="@+id/okProj"
                 android:layout_width="134dp"
                 android:layout_height="47dp"
                 android:src="@drawable/ok1"/>
 
             <ImageView
-                android:id="@+id/cancelGoal"
+                android:id="@+id/cancelProj"
                 android:layout_width="132dp"
                 android:layout_height="47dp"
                 android:layout_marginStart="8dp"
