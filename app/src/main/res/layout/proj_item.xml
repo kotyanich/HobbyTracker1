@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/projectsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:srcCompat="@drawable/frame_288950" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/projectRecyclerView"
+        android:layout_width="377dp"
+        android:layout_height="187dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:contentDescription="projects"
+        android:nestedScrollingEnabled="true" />
+    <TextView
+        android:id="@+id/projectName"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/source_serif_pro_semibold"
+        android:textSize="24sp"
+        android:text="Название проекта"
+        android:textAlignment="center"/>
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:src="@drawable/line_4"
+        android:layout_marginTop="70dp"/>
+
+    <ImageView
+        android:id="@+id/addGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        app:srcCompat="@drawable/frame_288961" />
+
+</FrameLayout>

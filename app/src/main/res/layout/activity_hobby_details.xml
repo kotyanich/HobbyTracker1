@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECE7E0"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="81dp"
+                    app:srcCompat="@drawable/smth11111" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECE7E0"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/logohobby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginTop="25dp"
+                    app:srcCompat="@drawable/cactus_ico" />
+
+                <TextView
+                    android:id="@+id/hobby"
+                    android:layout_width="266dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="TextView"
+                    android:textSize="36sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="95dp"
+                    app:srcCompat="@drawable/dots1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="180dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="Активность"
+                    android:textSize="32sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="220dp"
+                    app:srcCompat="@drawable/line_5" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="250dp"
+                    app:srcCompat="@drawable/total_1_" />
+
+                <TextView
+                    android:id="@+id/wholeTimeInfo"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="265dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    tools:text="Общее время:" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="250dp"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/month" />
+
+                <TextView
+                    android:id="@+id/monthInfo"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="265dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="За месяц:"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="360dp"
+                    app:srcCompat="@drawable/per_week" />
+
+                <TextView
+                    android:id="@+id/weekInfo"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="375dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="За неделю:"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="360dp"
+                    android:layout_marginEnd="16dp"
+                    app:srcCompat="@drawable/per_day" />
+
+                <TextView
+                    android:id="@+id/dayInfo"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="230dp"
+                    android:layout_marginTop="375dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="За сегодня:"
+                    android:textSize="20sp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECE7E0"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/addTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#ECE7E0"
+                    android:contentDescription="addtime"
+                    android:src="@drawable/addtime" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECE7E0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="Планирование"
+                    android:textSize="32sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="112dp"
+                    app:srcCompat="@drawable/line_5" />
+
+                <ImageView
+                    android:id="@+id/project"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="142dp"
+                    android:backgroundTint="#ECE7E0"
+                    app:srcCompat="@drawable/projectsbut" />
+
+                <ImageView
+                    android:id="@+id/task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="142dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#ECE7E0"
+                    app:layout_constraintTop_toBottomOf="@+id/addTime"
+                    app:srcCompat="@drawable/tasksbut" />
+
+                <ImageView
+                    android:id="@+id/projectGrey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="142dp"
+                    android:backgroundTint="#ECE7E0"
+                    app:srcCompat="@drawable/projectsgrey" />
+
+                <ImageView
+                    android:id="@+id/taskGrey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="142dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#ECE7E0"
+                    app:srcCompat="@drawable/tasksgrey" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ECE7E0">
+
+                <ImageView
+                    android:id="@+id/taskList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#ECE7E0"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/frame_288950" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/taskItems"
+                    android:layout_width="375dp"
+                    android:layout_height="298dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="items"
+                    android:visibility="visible" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/projRecyclerView"
+                    android:layout_width="380dp"
+                    android:layout_height="298dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="projects" />
+
+                <ImageView
+                    android:id="@+id/leftarrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="54dp"
+                    app:srcCompat="@drawable/leftarrow" />
+
+                <ImageView
+                    android:id="@+id/rightarrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="54dp"
+                    android:layout_marginEnd="80dp"
+                    app:srcCompat="@drawable/rightarrow" />
+
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EAE5DE">
+
+                <ImageButton
+                    android:id="@+id/addTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#ECE7E0"
+                    android:contentDescription="add"
+                    android:src="@drawable/addtask" />
+
+                <ImageButton
+                    android:id="@+id/addProj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#ECE7E0"
+                    android:contentDescription="add"
+                    android:src="@drawable/addproj" />
+
+                <ImageButton
+                    android:id="@+id/deleteProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#ECE7E0"
+                    android:contentDescription="delete"
+                    android:src="@drawable/deleteproj" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/bottomPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bottom_panel" />
+
+        <ImageButton
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="home"
+            app:srcCompat="@drawable/grey_main" />
+        <ImageButton
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:contentDescription="home"
+            app:srcCompat="@drawable/profile" />
+        <ImageButton
+            android:id="@+id/shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="home"
+            app:srcCompat="@drawable/shop" />
+    </FrameLayout>
+</RelativeLayout>
+
+

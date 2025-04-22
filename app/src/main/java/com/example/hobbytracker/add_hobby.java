@@ -21,6 +21,7 @@ public class add_hobby extends AppCompatActivity {
     ImageView ico1, ico2, ico3, ico4;
     int selectedImageResId = -1;
     ImageView selectedImageView = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

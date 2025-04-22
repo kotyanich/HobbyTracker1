@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="2dp">
+
+    <CheckBox
+        android:id="@+id/projectCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="#E8D3C9"
+        android:fontFamily="@font/source_serif_pro"
+        android:text="text view"
+        android:textSize="20sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/todoline"
+        android:layout_gravity="bottom"/>
+
+    <ImageView
+        android:id="@+id/deleteGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/deletetask" />
+
+</FrameLayout>

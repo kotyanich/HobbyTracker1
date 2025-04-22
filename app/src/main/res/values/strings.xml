@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">HobbyTracker</string>
+    <string-array name="quotes">
+        <item>Твори, даже если страшно!</item>
+        <item>Твое хобби — твоя суперсила!</item>
+        <item>Твори без остановки!</item>
+        <item>Верь в себя!</item>
+        <item>Твой прогресс впечатляет!</item>
+        <item>Практика — твой союзник!</item>
+        <item>Ты — молодец!</item>
+    </string-array>
+    <string-array name="logrosTitle">
+        <item>Мастер времени</item>
+        <item>Хобби-маньяк</item>
+        <item>Коллекционер задач</item>
+        <item>Исполнитель обещаний</item>
+        <item>Коллекционер проектов</item>
+        <item>Властелин проектов</item>
+    </string-array>
+    <string-array name="logrosBronze">
+        <item>Всего потрачено часов: </item>
+        <item>Создайте хобби: </item>
+        <item>Записано целей: </item>
+        <item>Выполнено целей: </item>
+        <item>Создано проектов: </item>
+        <item>Выполнено проектов: </item>
+    </string-array>
+    <string-array name="logrosSilver">
+        <item>Всего потрачено часов: </item>
+        <item>Создайте хобби: </item>
+        <item>Записано целей: </item>
+        <item>Выполнено целей: </item>
+        <item>Создано проектов: </item>
+        <item>Выполнено проектов: </item>
+    </string-array>
+    <string-array name="logrosGold">
+        <item>Всего потрачено часов: </item>
+        <item>Создайте хобби: </item>
+        <item>Записано целей: </item>
+        <item>Выполнено целей: </item>
+        <item>Создано проектов: </item>
+        <item>Выполнено проектов: </item>
+    </string-array>
 </resources>
