@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
     }
     private void goToLogros(){
         Intent intent = new Intent(this, achievements.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-
     }
 
     private String getRandomQuote(){

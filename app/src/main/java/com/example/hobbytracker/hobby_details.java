@@ -135,10 +135,12 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         addProj.setOnClickListener(v -> showAddProjDialog());
         home.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
         profile.setOnClickListener(v ->{
             Intent intent = new Intent(this, achievements.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
         deleteProject.setOnClickListener(v -> showDeleteConfirmationDialog());
