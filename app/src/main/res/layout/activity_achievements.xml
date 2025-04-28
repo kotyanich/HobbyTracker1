@@ -19,7 +19,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="73dp"
             android:fontFamily="@font/source_serif_pro_semibold"
-            android:text="Достижения"
+            android:text="@string/achievements"
             android:textSize="36sp" />
 
         <ImageView
@@ -27,20 +27,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="125dp"
-            android:src="@drawable/line_1" />
+            android:src="@drawable/line_1"
+            android:contentDescription="@string/line"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="43dp"
-            android:src="@drawable/left_dots" />
+            android:src="@drawable/left_dots"
+            android:contentDescription="@string/pattern"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="43dp"
-            android:src="@drawable/right_dots" />
+            android:src="@drawable/right_dots"
+            android:contentDescription="@string/pattern"/>
 
     </FrameLayout>
 
@@ -57,7 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginTop="20dp"
-            android:src="@drawable/line_6" />
+            android:src="@drawable/line_6"
+            android:contentDescription="@string/line"/>
     </LinearLayout>
 
     <LinearLayout
@@ -84,7 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/line_6" />
+            android:src="@drawable/line_6"
+            android:contentDescription="@string/line"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -92,7 +97,8 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="34dp"
             android:layout_marginBottom="44dp"
-            android:src="@drawable/mascotlogros" />
+            android:src="@drawable/mascotlogros"
+            android:contentDescription="@string/mascot"/>
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -103,7 +109,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/bubble2" />
+                android:src="@drawable/bubble2"
+                android:contentDescription="@string/bubble"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,8 +118,9 @@
                 android:fontFamily="@font/source_serif_pro_semibold"
                 android:padding="15dp"
                 android:paddingStart="40dp"
-                android:text="Получай монеты и обменивай их в магазине!"
-                android:textSize="20dp" />
+                android:paddingEnd="40dp"
+                android:text="@string/mascotAchievement"
+                android:textSize="20sp" />
         </FrameLayout>
     </FrameLayout>
 
@@ -125,14 +133,16 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/bottom_panel" />
+            android:src="@drawable/bottom_panel"
+            android:contentDescription="@string/panel"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/shop" />
+            android:contentDescription="@string/shop"
+            android:src="@drawable/shop"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -140,7 +150,8 @@
             android:layout_gravity="end"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="18dp"
-            android:src="@drawable/profile_active" />
+            android:src="@drawable/profile_active"
+            android:contentDescription="@string/achievements_button"/>
 
         <ImageView
             android:id="@+id/home"
@@ -148,7 +159,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            android:src="@drawable/grey_main" />
+            android:src="@drawable/grey_main"
+            android:contentDescription="@string/home_button"/>
     </FrameLayout>
 
 </RelativeLayout>

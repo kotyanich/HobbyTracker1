@@ -9,34 +9,32 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/mix"/>
+        app:srcCompat="@drawable/mix"
+        android:contentDescription="@string/list"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="36dp"
-            android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="36dp">
 
             <TextView
                 android:id="@+id/projText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Добавить проект"
-                android:textSize="32sp" />
+                android:text="@string/add_proj"
+                android:textSize="32sp"
+                android:layout_gravity="center_horizontal"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:src="@drawable/line_4" />
-        </LinearLayout>
+                android:src="@drawable/line_4"
+                android:contentDescription="@string/line"
+                android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,7 +45,8 @@
                 android:layout_width="315dp"
                 android:layout_height="51dp"
                 android:backgroundTint="#DEB3A3"
-                android:hint="Введите проект"
+                android:hint="@string/input_project"
+                android:autofillHints=""
                 android:inputType="text"/>
         </LinearLayout>
 
@@ -58,18 +57,42 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp">
 
-            <ImageView
-                android:id="@+id/okProj"
-                android:layout_width="134dp"
-                android:layout_height="47dp"
-                android:src="@drawable/ok1"/>
-
-            <ImageView
-                android:id="@+id/cancelProj"
-                android:layout_width="132dp"
-                android:layout_height="47dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/cancel1"/>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/cancelProj"
+                    android:layout_width="132dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/cancel_add_time"
+                    android:contentDescription="@string/cancel_button"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="@string/cancel"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="5dp"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/okProj"
+                    android:layout_width="134dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/ok_add_time"
+                    android:contentDescription="@string/ok_button"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="@string/ok"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:textSize="22sp"/>
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

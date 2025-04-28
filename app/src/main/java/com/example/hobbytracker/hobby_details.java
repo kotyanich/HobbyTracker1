@@ -100,7 +100,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         if (!allProjectLists.isEmpty()) {
             currProj = allProjectLists.get(currProjList);
         } else {
-            currProj = new ProjectList("Проект", new ArrayList<>());
+            currProj = new ProjectList(getString(R.string.project), new ArrayList<>());
             allProjectLists.add(currProj);
             saveData("ProjectsData", allProjectLists);
         }
@@ -189,14 +189,18 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     }
 
     private void showDeleteConfirmationDialog(){
-        new AlertDialog.Builder(this)
-                .setTitle("Удалить проект?")
-                .setMessage("Вы уверены, что хотите удалить этот проект?")
-                .setPositiveButton("Удалить", (dialog, which) -> {
-                    deleteProject();
-                })
-                .setNegativeButton("Отмена", null)
-                .show();
+        View dialogView = getLayoutInflater().inflate(R.layout.delete_proj, null);
+        ImageView ok = dialogView.findViewById(R.id.okProjDel);
+        ImageView cancel = dialogView.findViewById(R.id.cancelProjDel);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        ok.setOnClickListener(v -> {
+            deleteProject();
+            dialog.dismiss();
+        });
+        cancel.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
     }
 
     private void showAddTaskDialog() {
@@ -301,7 +305,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         int[] totalTime = currHobby.sumTime(mapData);
         int hours = totalTime[0];
         int minutes = totalTime[1];
-        String wholeTime = "Общее время:\n" + hours + " ч. " + minutes + " мин.";
+        String wholeTime = getString(R.string.total_time, hours, minutes);
         wholeTimeInfo.setText(wholeTime);
     }
 
@@ -312,7 +316,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         int[] totalTime = currHobby.getDayTime(date);
         int hours = totalTime[0];
         int minutes = totalTime[1];
-        dayInfo.setText("За сегодня:\n" + hours + " ч. " + minutes + " мин.");
+        dayInfo.setText(getString(R.string.daily_activity, hours, minutes));
     }
 
     private void updateWeekInfo(){
@@ -320,7 +324,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         int[] totalTime = currHobby.getWeekTime();
         int hours = totalTime[0];
         int minutes = totalTime[1];
-        weekInfo.setText("За неделю:\n" + hours + " ч. " + minutes + " мин.");
+        weekInfo.setText(getString(R.string.week_activity, hours, minutes));
     }
 
     private void updateMonthInfo(){
@@ -328,7 +332,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         int[] totalTime = currHobby.getMonthTime();
         int hours = totalTime[0];
         int minutes = totalTime[1];
-        monthInfo.setText("За месяц:\n" + hours + " ч. " + minutes + " мин.");
+        monthInfo.setText(getString(R.string.month_activity, hours, minutes));
     }
 
 

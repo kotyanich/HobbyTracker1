@@ -3,7 +3,6 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,7 +31,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="81dp"
-                    app:srcCompat="@drawable/smth11111" />
+                    app:srcCompat="@drawable/smth11111"
+                    android:contentDescription="@string/pattern"/>
 
             </LinearLayout>
 
@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="31dp"
                     android:layout_marginTop="25dp"
-                    app:srcCompat="@drawable/cactus_ico" />
+                    app:srcCompat="@drawable/cactus_ico"
+                    android:contentDescription="@string/ico"/>
 
                 <LinearLayout
                     android:layout_width="266dp"
@@ -65,12 +66,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="TextView"
-                            android:textSize="36sp"/>
+                            android:textSize="36sp"
+                            android:src="@drawable/line_4"/>
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/line_4"/>
+                            android:src="@drawable/line_4"
+                            android:contentDescription="@string/line"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -78,7 +80,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="95dp"
-                    app:srcCompat="@drawable/dots1" />
+                    app:srcCompat="@drawable/dots1"
+                    android:contentDescription="@string/pattern"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,15 +89,16 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="180dp"
                     android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="Активность"
-                    android:textSize="32sp" />
+                    android:text="@string/activity"
+                    android:textSize="32sp"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="220dp"
-                    app:srcCompat="@drawable/line_5" />
+                    app:srcCompat="@drawable/line_5"
+                    android:contentDescription="@string/line"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -110,7 +114,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/total_1_" />
+                            app:srcCompat="@drawable/total_1_"
+                            android:contentDescription="@string/activity_block"/>
 
                         <TextView
                             android:id="@+id/wholeTimeInfo"
@@ -119,9 +124,8 @@
                             android:layout_marginStart="12dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="TextView"
-                            android:textSize="20sp"
-                            tools:text="Общее время:" />
+                            android:text="@string/total_time"
+                            android:textSize="20sp" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -132,7 +136,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/month" />
+                            app:srcCompat="@drawable/month"
+                            android:contentDescription="@string/activity_block"/>
 
                         <TextView
                             android:id="@+id/monthInfo"
@@ -141,7 +146,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="За месяц:"
+                            android:text="@string/month_activity"
                             android:textSize="20sp" />
                     </FrameLayout>
 
@@ -162,7 +167,8 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/per_week" />
+                            app:srcCompat="@drawable/per_week"
+                            android:contentDescription="@string/activity_block"/>
 
                         <TextView
                             android:id="@+id/weekInfo"
@@ -171,7 +177,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="За неделю:"
+                            android:text="@string/week_activity"
                             android:textSize="20sp" />
                     </FrameLayout>
 
@@ -183,7 +189,8 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:srcCompat="@drawable/per_day" />
+                            app:srcCompat="@drawable/per_day"
+                            android:contentDescription="@string/activity_block"/>
 
                         <TextView
                             android:id="@+id/dayInfo"
@@ -192,7 +199,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="За сегодня:"
+                            android:text="@string/daily_activity"
                             android:textSize="20sp" />
                     </FrameLayout>
 
@@ -212,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="#ECE7E0"
-                    android:contentDescription="addtime"
+                    android:contentDescription="@string/add_time_button"
                     android:src="@drawable/add_time_button" />
 
                 <TextView
@@ -220,8 +227,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="Добавить время"
-                    android:textSize="24sp" />
+                    android:text="@string/add_time"
+                    android:textSize="24sp"/>
             </FrameLayout>
 
             <LinearLayout
@@ -236,14 +243,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="Планирование"
+                    android:text="@string/planning"
                     android:textSize="32sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/line_5" />
+                    app:srcCompat="@drawable/line_5"
+                    android:contentDescription="@string/line"/>
             </LinearLayout>
 
             <LinearLayout
@@ -268,14 +276,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
-                            app:srcCompat="@drawable/tasks_button" />
+                            app:srcCompat="@drawable/tasks_button"
+                            android:contentDescription="@string/task_button"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="Задачи"
+                            android:text="@string/tasks"
                             android:textSize="24sp" />
                     </FrameLayout>
 
@@ -289,14 +298,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
-                            app:srcCompat="@drawable/projects_button" />
+                            app:srcCompat="@drawable/projects_button"
+                            android:contentDescription="@string/task_button"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="Задачи"
+                            android:text="@string/tasks"
                             android:textSize="24sp" />
                     </FrameLayout>
                 </FrameLayout>
@@ -315,14 +325,15 @@
                             android:id="@+id/projectGrey"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/tasks_button" />
+                            app:srcCompat="@drawable/tasks_button"
+                            android:contentDescription="@string/proj_button"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="Проекты"
+                            android:text="@string/projects"
                             android:textSize="24sp" />
                     </FrameLayout>
 
@@ -336,14 +347,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
-                            app:srcCompat="@drawable/projects_button" />
+                            app:srcCompat="@drawable/projects_button"
+                            android:contentDescription="@string/proj_button"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|center_horizontal"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="Проекты"
+                            android:text="@string/projects"
                             android:textSize="24sp" />
                     </FrameLayout>
                 </FrameLayout>
@@ -358,20 +370,21 @@
                     android:id="@+id/taskList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/frame_288950" />
+                    app:srcCompat="@drawable/frame_288950"
+                    android:contentDescription="@string/list"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/taskItems"
                     android:layout_width="370dp"
                     android:layout_height="290dp"
-                    android:contentDescription="items" />
+                    android:contentDescription="@string/recycler"/>
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/projRecyclerView"
                     android:layout_width="380dp"
                     android:layout_height="298dp"
                     android:layout_gravity="center_horizontal"
-                    android:contentDescription="projects" />
+                    android:contentDescription="@string/recycler" />
 
                 <ImageView
                     android:id="@+id/leftarrow"
@@ -379,7 +392,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="34dp"
-                    app:srcCompat="@drawable/leftarrow" />
+                    app:srcCompat="@drawable/leftarrow"
+                    android:contentDescription="@string/left_arrow"/>
 
                 <ImageView
                     android:id="@+id/rightarrow"
@@ -388,7 +402,8 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="34dp"
                     android:layout_marginEnd="70dp"
-                    app:srcCompat="@drawable/rightarrow" />
+                    app:srcCompat="@drawable/rightarrow"
+                    android:contentDescription="@string/right_arrow"/>
             </FrameLayout>
 
             <FrameLayout
@@ -414,14 +429,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
-                            android:src="@drawable/add_task_button_1_" />
+                            android:src="@drawable/add_task_button_1_"
+                            android:contentDescription="@string/add_proj_button"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal|center_vertical"
                             android:fontFamily="@font/source_serif_pro_semibold"
-                            android:text="Добавить проект"
+                            android:text="@string/add_proj"
                             android:textSize="24sp" />
                     </FrameLayout>
 
@@ -431,7 +447,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:backgroundTint="#ECE7E0"
-                        android:src="@drawable/deleteproj" />
+                        android:src="@drawable/deleteproj"
+                        android:contentDescription="@string/del_proj_button"/>
                 </LinearLayout>
 
                 <FrameLayout
@@ -444,14 +461,15 @@
                         android:id="@+id/addTask"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/frame_288916_1_" />
+                        android:src="@drawable/frame_288916_1_"
+                        android:contentDescription="@string/add_task_button"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:fontFamily="@font/source_serif_pro_semibold"
-                        android:text="Добавить задачу"
+                        android:text="@string/add_task"
                         android:textSize="24sp" />
                 </FrameLayout>
             </FrameLayout>
@@ -468,14 +486,15 @@
             android:id="@+id/bottomPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bottom_panel" />
+            app:srcCompat="@drawable/bottom_panel"
+            android:contentDescription="@string/panel"/>
 
         <ImageButton
             android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:contentDescription="home"
+            android:contentDescription="@string/home_button"
             app:srcCompat="@drawable/grey_main" />
 
         <ImageButton
@@ -483,14 +502,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:contentDescription="home"
+            android:contentDescription="@string/achievements_button"
             app:srcCompat="@drawable/profile" />
 
         <ImageButton
             android:id="@+id/shop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="home"
+            android:contentDescription="@string/shop"
             app:srcCompat="@drawable/shop" />
     </FrameLayout>
 </RelativeLayout>

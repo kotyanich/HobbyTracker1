@@ -12,7 +12,8 @@
         android:layout_margin="10dp"
         android:background="#ECE7E0"
         android:backgroundTint="#ECE7E0"
-        app:srcCompat="@drawable/hobby_card" />
+        app:srcCompat="@drawable/hobby_card"
+        android:contentDescription="@string/card"/>
 
     <ImageView
         android:id="@+id/logo"
@@ -21,9 +22,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
         android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/guitar_frame_1_" />
+        tools:srcCompat="@drawable/guitar_frame_1_"
+        android:contentDescription="@string/ico"/>
 
     <TextView
         android:id="@+id/hobbyname"
@@ -32,6 +32,5 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/source_serif_pro_bold"
-        android:text="TextView"
         android:textSize="24sp" />
 </FrameLayout>

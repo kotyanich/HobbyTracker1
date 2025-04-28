@@ -26,8 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="55dp"
                 android:backgroundTint="#ECE7E0"
-                android:contentDescription="back"
                 android:onClick="goToMainScreen"
+                android:contentDescription="@string/back_button"
                 app:srcCompat="@drawable/back" />
 
             <TextView
@@ -37,21 +37,23 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="120dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Новое хобби"
-                android:textSize="36sp" />
+                android:text="@string/new_hobby"
+                android:textSize="36sp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:layout_marginTop="64dp"
-                app:srcCompat="@drawable/smth" />
+                app:srcCompat="@drawable/smth"
+                android:contentDescription="@string/pattern"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="165dp"
+                android:contentDescription="@string/line"
                 app:srcCompat="@drawable/bar" />
 
         </FrameLayout>
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Введите название хобби"
+                android:text="@string/input_hobby"
                 android:textSize="24sp" />
 
             <EditText
@@ -77,7 +79,8 @@
                 android:layout_marginStart="14dp"
                 android:backgroundTint="#DEB3A3"
                 android:fontFamily="@font/source_serif_pro"
-                android:hint="Например: Кулинария"
+                android:hint="@string/hint_new_hobby"
+                android:autofillHints=""
                 android:inputType="text"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -93,7 +96,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Выберите аватарку для хобби"
+                android:text="@string/choose_new_ico"
                 android:textSize="24sp" />
 
             <GridLayout
@@ -112,6 +115,7 @@
                         android:id="@+id/ico1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
                         app:srcCompat="@drawable/cactus_ico"/>
 
                     <ImageView
@@ -119,6 +123,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/select_icon_frame"
+                        android:contentDescription="@string/ico_red"
                         android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
@@ -132,12 +137,14 @@
                         android:id="@+id/ico2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
                         app:srcCompat="@drawable/roll_ico"/>
                     <ImageView
                         android:id="@+id/ico2_red"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/crocheting_red"
+                        android:contentDescription="@string/ico_red"
                         android:visibility="gone"/>
                 </FrameLayout>
                 <FrameLayout
@@ -151,12 +158,14 @@
                         android:id="@+id/ico3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
                         app:srcCompat="@drawable/draw_ico"/>
                     <ImageView
                         android:id="@+id/ico3_red"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/drawing_red"
+                        android:contentDescription="@string/ico_red"
                         android:visibility="gone"/>
 
                 </FrameLayout>
@@ -171,12 +180,14 @@
                         android:id="@+id/ico4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
                         app:srcCompat="@drawable/guitar_ico"/>
                     <ImageView
                         android:id="@+id/ico4_red"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/guitar_red"
+                        android:contentDescription="@string/ico_red"
                         android:visibility="gone"/>
 
                 </FrameLayout>
@@ -194,7 +205,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#ECE7E0"
-                android:contentDescription="create"
+                android:contentDescription="@string/submit_button"
                 android:src="@drawable/create_hobby_button" />
 
             <TextView
@@ -203,7 +214,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="33dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Создать хобби"
+                android:text="@string/create_hobby"
                 android:textSize="24sp" />
         </FrameLayout>
     </LinearLayout>
@@ -218,9 +229,7 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/panel"
             app:srcCompat="@drawable/bottom_panel" />
 
         <ImageView
@@ -229,6 +238,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/shop"
             app:srcCompat="@drawable/shop" />
 
         <ImageView
@@ -237,7 +247,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            android:contentDescription="home"
+            android:contentDescription="@string/home_button"
             android:onClick="goToMainScreen"
             app:srcCompat="@drawable/grey_main" />
 
@@ -245,9 +255,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/logrosBut"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
+            android:contentDescription="@string/achievements_button"
             app:srcCompat="@drawable/profile" />
     </FrameLayout>
 

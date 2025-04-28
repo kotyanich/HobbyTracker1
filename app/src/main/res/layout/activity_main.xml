@@ -22,20 +22,22 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="65dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Мои хобби"
+                android:text="@string/my_hobbies"
                 android:textSize="36sp" />
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="190dp"
-                app:srcCompat="@drawable/smth1" />
+                app:srcCompat="@drawable/smth1"
+                android:contentDescription="@string/pattern"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="190dp"
-                android:layout_gravity="right"
-                app:srcCompat="@drawable/smth11" />
+                android:layout_gravity="end"
+                app:srcCompat="@drawable/smth11"
+                android:contentDescription="@string/pattern"/>
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -43,14 +45,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="115dp"
-                app:srcCompat="@drawable/bar" />
+                app:srcCompat="@drawable/bar"
+                android:contentDescription="@string/line"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/line_6"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_gravity="center_horizontal|bottom"/>
+                android:layout_gravity="center_horizontal|bottom"
+                android:contentDescription="@string/line"/>
         </FrameLayout>
 
         <FrameLayout
@@ -64,7 +68,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="hobbies" />
+                android:contentDescription="@string/recycler" />
         </FrameLayout>
 
     <FrameLayout
@@ -79,7 +83,8 @@
             android:src="@drawable/line_6"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/line"/>
         <ImageButton
             android:id="@+id/addHobby"
             android:layout_width="wrap_content"
@@ -87,7 +92,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginTop="20dp"
             android:backgroundTint="#00ECE7E0"
-            android:contentDescription="add"
+            android:contentDescription="@string/add_hobby"
             android:onClick="GoToAddHobby"
             app:srcCompat="@drawable/add_button" />
 
@@ -97,20 +102,21 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="42dp"
             android:layout_marginTop="100dp"
-            android:src="@drawable/mascott" />
+            android:src="@drawable/mascott"
+            android:contentDescription="@string/mascot"/>
         <ImageView
             android:id="@+id/bubble"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:src="@drawable/bubble"
-            android:layout_marginStart="150dp"/>
+            android:layout_marginStart="150dp"
+            android:contentDescription="@string/bubble"/>
         <TextView
             android:id="@+id/bubbleText"
             android:layout_width="170dp"
             android:layout_height="60dp"
             android:textSize="20sp"
-            android:text="quote"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:layout_marginStart="170dp"
             android:layout_marginTop="30dp"/>
@@ -128,7 +134,8 @@
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bottom_panel" />
+            app:srcCompat="@drawable/bottom_panel"
+            android:contentDescription="@string/panel"/>
 
         <ImageView
             android:id="@+id/imageView"
@@ -136,23 +143,26 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            app:srcCompat="@drawable/shop" />
+            app:srcCompat="@drawable/shop"
+            android:contentDescription="@string/shop"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
-            app:srcCompat="@drawable/house_main_pink" />
+            app:srcCompat="@drawable/house_main_pink"
+            android:contentDescription="@string/home_button"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/logros"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
-            app:srcCompat="@drawable/profile" />
+            app:srcCompat="@drawable/profile"
+            android:contentDescription="@string/achievements_button"/>
     </FrameLayout>
 
 

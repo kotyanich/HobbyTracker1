@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HobbyTracker</string>
+    <string name="mascotAchievement">Obten las monedas y gastalas en la tienda!</string>
+    <string name="new_hobby">Nuevo hobby</string>
+    <string name="input_hobby">escribe el nombre de hobby</string>
+    <string name="hint_new_hobby">Por ejemplo: Cocinar</string>
+    <string name="choose_new_ico">Elige el icono de hobby</string>
+    <string name="create_hobby">Crear un hobby</string>
+    <string name="activity">Actividad</string>
+    <string name="total_time">total:\n%1$d h %2$d min</string>
+    <string name="month_activity">Este mes: \n%1$d h %2$d min</string>
+    <string name="week_activity">Esta semana:\n%1$d h %2$d min</string>
+    <string name="daily_activity">Hoy:\n%1$d h %2$d min</string>
+    <string name="add_time">Agregar el tiempo</string>
+    <string name="planning">Planificacion</string>
+    <string name="tasks">Objetivos</string>
+    <string name="projects">Proyectos</string>
+    <string name="add_proj">Agregar un proyecto</string>
+    <string name="add_task">Agregar un objetivo</string>
+    <string name="my_hobbies">Mis hobbies</string>
+    <string name="input_task">Escribe el objetivo</string>
+    <string name="input_project">Escribe el nombre del proyecto</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Atras</string>
+    <string name="hours">h</string>
+    <string name="minutes">min</string>
+    <string name="picker">:</string>
+    <string name="achievements">Logros</string>
+    <string name="project">Proyecto</string>
+    <string name="delete_proj">Quieres eliminar el proyecto?</string>
+    <string-array name="quotes">
+        <item>Crea hasta si da miedo!</item>
+        <item>Tu hobby es tu superpoder!</item>
+        <item>Crea sin parar!</item>
+        <item>Cree en ti mismo!</item>
+        <item>Tu progreso es impresionante!</item>
+        <item>La practica es tu aliada!</item>
+        <item>Eres genial!</item>
+    </string-array>
+    <string-array name="logrosTitle">
+        <item>Maestro del tiempo</item>
+        <item>Hobby-maniac</item>
+        <item>Coleccionista de objetivos</item>
+        <item>Cumplidor de promesas</item>
+        <item>Coleccionista de proyectos</item>
+        <item>Master of projects</item>
+    </string-array>
+    <string-array name="logrosBronze">
+        <item>El tiempo gastado: </item>
+        <item>Creaste hobbies: </item>
+        <item>Creaste objetivos: </item>
+        <item>Objetivos completos: </item>
+        <item>Creaste proyectos: </item>
+        <item>Proyectos completos: </item>
+    </string-array>
+    <string-array name="logrosSilver">
+        <item>El tiempo gastado: </item>
+        <item>Creaste hobbies: </item>
+        <item>Creaste objetivos: </item>
+        <item>Objetivos completos: </item>
+        <item>Creaste proyectos: </item>
+        <item>Proyectos completos: </item>
+    </string-array>
+    <string-array name="logrosGold">
+        <item>El tiempo gastado: </item>
+        <item>Creaste hobbies: </item>
+        <item>Creaste objetivos: </item>
+        <item>Objetivos completos: </item>
+        <item>Creaste proyectos: </item>
+        <item>Proyectos completos: </item>
+    </string-array>
+</resources>

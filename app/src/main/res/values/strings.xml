@@ -1,5 +1,63 @@
 <resources>
     <string name="app_name">HobbyTracker</string>
+    <string name="mascotAchievement">Получай монеты и обменивай их в магазине!</string>
+    <string name="new_hobby">Новое хобби</string>
+    <string name="input_hobby">Введите название хобби</string>
+    <string name="hint_new_hobby">Например: Кулинария</string>
+    <string name="choose_new_ico">Выберите аватарку для хобби</string>
+    <string name="create_hobby">Создать хобби</string>
+    <string name="back_button" translatable="false">back</string>
+    <string name="home_button" translatable="false">home</string>
+    <string name="submit_button" translatable="false">submit</string>
+    <string name="pattern" translatable="false">pattern</string>
+    <string name="line" translatable="false">line</string>
+    <string name="ico" translatable="false">ico</string>
+    <string name="ico_red" translatable="false">ico_red</string>
+    <string name="panel" translatable="false">panel</string>
+    <string name="shop" translatable="false">shop</string>
+    <string name="achievements_button" translatable="false">achievements</string>
+    <string name="mascot" translatable="false">mascot</string>
+    <string name="bubble" translatable="false">bubble</string>
+    <string name="activity">Активность</string>
+    <string name="activity_block" translatable="false">activity_block</string>
+    <string name="total_time">Общее время:\n%1$d ч %2$d мин</string>
+    <string name="month_activity">За месяц:\n%1$d ч %2$d мин</string>
+    <string name="week_activity">За неделю:\n%1$d ч %2$d мин</string>
+    <string name="daily_activity">За сегодня:\n%1$d ч %2$d мин</string>
+    <string name="add_time_button" translatable="false">add_time</string>
+    <string name="add_time">Добавить время</string>
+    <string name="planning">Планирование</string>
+    <string name="task_button" translatable="false">task_button</string>
+    <string name="proj_button" translatable="false">proj_button</string>
+    <string name="tasks">Задачи</string>
+    <string name="projects">Проекты</string>
+    <string name="recycler" translatable="false">recycler</string>
+    <string name="list" translatable="false">list</string>
+    <string name="left_arrow" translatable="false">left_arrow</string>
+    <string name="right_arrow" translatable="false">right_arrow</string>
+    <string name="add_proj_button" translatable="false">add_project</string>
+    <string name="del_proj_button" translatable="false">delete_project</string>
+    <string name="add_proj">Добавить проект</string>
+    <string name="add_task_button" translatable="false">add_task</string>
+    <string name="add_task">Добавить задачу</string>
+    <string name="add_hobby" translatable="false">add_hobby</string>
+    <string name="my_hobbies">Мои хобби</string>
+    <string name="input_task">Введите задачу</string>
+    <string name="ok_button" translatable="false">OK</string>
+    <string name="cancel_button" translatable="false">Cancel</string>
+    <string name="input_project">Введите название проекта</string>
+    <string name="medal" translatable="false">medal</string>
+    <string name="card" translatable="false">card</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="hours">ч</string>
+    <string name="minutes">мин</string>
+    <string name="picker">:</string>
+    <string name="proj_name" translatable="false">Название проекта</string>
+    <string name="add_proj_task" translatable="false">add_proj_task_button</string>
+    <string name="delete_goal_button" translatable="false">delete_goal</string>
+    <string name="project">Проект</string>
+    <string name="delete_proj">Вы действительно\nхотите удалить проект?</string>
     <string-array name="quotes">
         <item>Твори, даже если страшно!</item>
         <item>Твое хобби — твоя суперсила!</item>
@@ -41,4 +99,5 @@
         <item>Создано проектов: </item>
         <item>Выполнено проектов: </item>
     </string-array>
+    <string name="achievements">Достижения</string>
 </resources>

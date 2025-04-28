@@ -40,7 +40,7 @@ public class AchievementsManager {
     }
 
     public void saveAchievements(){
-        SharedPreferences prefs = context.getSharedPreferences("LogroData", Context.MODE_PRIVATE);
+        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(achievements);
@@ -48,7 +48,7 @@ public class AchievementsManager {
         editor.apply();
     }
     public void loadAchievements(){
-        SharedPreferences prefs = context.getSharedPreferences("LogroData", Context.MODE_PRIVATE);
+        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = prefs.getString("achievements", null);
         Type type = new TypeToken<ArrayList<AchievementsData>>() {}.getType();

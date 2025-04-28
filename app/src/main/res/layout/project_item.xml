@@ -13,21 +13,21 @@
         android:buttonTint="#E8D3C9"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/source_serif_pro"
-        android:text="text view"
         android:textSize="20sp" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/todoline"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:contentDescription="@string/line"/>
 
     <ImageView
         android:id="@+id/deleteGoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
-        android:src="@drawable/deletetask" />
-
+        android:src="@drawable/deletetask"
+        android:contentDescription="@string/delete_goal_button"/>
 </FrameLayout>
