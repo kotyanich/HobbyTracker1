@@ -31,6 +31,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 
 public class hobby_details extends AppCompatActivity implements ProjAdapter.onGoalsChangedListener, TasksDeleteInterface, ProjectAdapter.OnDeleteListener{
@@ -45,12 +46,14 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     private ProjAdapter projAdapter;
     private String hobbyName, projName;
     int hobbyLogo;
+
     private Hobby currHobby;
     private Map<String, ArrayList<String>> mapData = new HashMap<>();
     private ArrayList<ProjectList> allProjectLists = new ArrayList<>();
     private ProjectList currProj;
     private int currProjList = 0;
     private ArrayList<Project> goals = new ArrayList<>();
+    private Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +163,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
             }
         });
     }
+
     private void changeView(boolean isTask){
         taskRecyclerView.setVisibility(isTask? View.VISIBLE : View.INVISIBLE);
         taskButtonsLayout.setVisibility(isTask? View.VISIBLE: View.INVISIBLE);
