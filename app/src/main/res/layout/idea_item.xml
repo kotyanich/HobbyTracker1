@@ -17,7 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/source_serif_pro"
-            android:textSize="20sp" />
+            android:textColor="#89543C"
+            android:textSize="20sp"
+            android:layout_marginBottom="5dp"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -30,8 +32,8 @@
             android:id="@+id/deleteIdea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="10dp"
             android:contentDescription="@string/delete_goal_button"
             android:src="@drawable/deletetask" />
     </FrameLayout>

@@ -39,7 +39,6 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
     public void onBindViewHolder(@NonNull IdeasAdapter.IdeasViewHolder holder, int position) {
         String link = links.get(position);
         holder.link.setText(link);
-        holder.link.setTextColor(Color.BLUE);
     }
 
     @Override
@@ -70,6 +69,7 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
                 public void onClick(View v) {
                     String url = link.getText().toString();
                     openLink(url);
+
                 }
             });
         }

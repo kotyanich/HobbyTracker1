@@ -1,6 +1,7 @@
 package com.example.hobbytracker;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
         holder.projectCheckBox.setText(project.getProjectName());
         holder.projectCheckBox.setOnCheckedChangeListener(null);
         holder.projectCheckBox.setChecked(project.isCompleted());
+        if (project.isCompleted()) holder.projectCheckBox.setPaintFlags(holder.projectCheckBox.getPaintFlags()|Paint.STRIKE_THRU_TEXT_FLAG);
+        else holder.projectCheckBox.setPaintFlags(holder.projectCheckBox.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
         holder.projectCheckBox.setOnCheckedChangeListener(((buttonView, isChecked) -> {
             new Handler().post(() -> {
                 project.setCompleted(isChecked);

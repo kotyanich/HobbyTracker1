@@ -1,6 +1,7 @@
 package com.example.hobbytracker;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.taskCheckBox.setText(task.getTaskName());
         holder.taskCheckBox.setOnCheckedChangeListener(null);
         holder.taskCheckBox.setChecked(task.isCompleted());
+        if (task.isCompleted()) holder.taskCheckBox.setPaintFlags(holder.taskCheckBox.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        else holder.taskCheckBox.setPaintFlags(holder.taskCheckBox.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
         holder.taskCheckBox.setOnCheckedChangeListener((buttonView, isChecked) ->{
             new Handler().post(() -> {
                 task.setCompleted(isChecked);
