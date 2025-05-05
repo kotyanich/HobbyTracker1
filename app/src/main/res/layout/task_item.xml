@@ -4,12 +4,11 @@
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:contentPadding="2dp">
+    android:padding="10dp">
 
     <CheckBox
         android:id="@+id/taskCheckBox"
-        android:layout_width="wrap_content"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:buttonTint="#E8D3C9"
         android:layout_marginStart="10dp"

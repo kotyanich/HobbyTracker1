@@ -29,6 +29,9 @@
     <string name="achievements">Logros</string>
     <string name="project">Proyecto</string>
     <string name="delete_proj">Quieres eliminar el proyecto?</string>
+    <string name="ideas">Inspiracion</string>
+    <string name="add_idea">Agregar URL</string>
+    <string name="input_idea">Escribe URL</string>
     <string-array name="quotes">
         <item>Crea hasta si da miedo!</item>
         <item>Tu hobby es tu superpoder!</item>

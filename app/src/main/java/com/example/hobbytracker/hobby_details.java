@@ -1,11 +1,11 @@
 package com.example.hobbytracker;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -31,29 +31,31 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
+import java.util.Objects;
 
 
-public class hobby_details extends AppCompatActivity implements ProjAdapter.onGoalsChangedListener, TasksDeleteInterface, ProjectAdapter.OnDeleteListener{
+public class hobby_details extends AppCompatActivity implements ProjAdapter.onGoalsChangedListener, TasksDeleteInterface,IdeaDeleteInterface, ProjectAdapter.OnDeleteListener{
 
     private ArrayList<Task> tasks = new ArrayList<>();
+    private ArrayList<String> links = new ArrayList<>();
     private RecyclerView taskRecyclerView;
+    RecyclerView ideasRecyclerView;
     private ViewPager2 projRecyclerView;
-    private ImageView taskList, taskButtonIn, projectsButtonIn, rightArrow, leftArrow, addTask, addProj, deleteProject;
+    private ImageView taskList, rightArrow, leftArrow;
+    ImageView taskButtonIn, projectsButtonIn, addTask, addProj, deleteProject, addIdea;
     private FrameLayout taskLayout, projectLayout, taskInLayout, projectInLayout, taskButtonsLayout;
     private LinearLayout projectButtonsLayout;
     private TaskAdapter adapter;
     private ProjAdapter projAdapter;
+    private IdeasAdapter ideasAdapter;
     private String hobbyName, projName;
     int hobbyLogo;
-
     private Hobby currHobby;
     private Map<String, ArrayList<String>> mapData = new HashMap<>();
     private ArrayList<ProjectList> allProjectLists = new ArrayList<>();
     private ProjectList currProj;
     private int currProjList = 0;
-    private ArrayList<Project> goals = new ArrayList<>();
-    private Random random = new Random();
+    ArrayList<Project> goals = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         });
         taskRecyclerView = findViewById(R.id.taskItems);
         projRecyclerView = findViewById(R.id.projRecyclerView);
+        ideasRecyclerView = findViewById(R.id.ideasItems);
         addTask = findViewById(R.id.addTask);
         TextView hobby = findViewById(R.id.hobby);
         ImageView logo = findViewById(R.id.logohobby);
@@ -80,6 +83,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         rightArrow = findViewById(R.id.rightarrow);
         leftArrow = findViewById(R.id.leftarrow);
         addProj = findViewById(R.id.addProj);
+        addIdea = findViewById(R.id.addIdea);
         taskLayout = findViewById(R.id.taskactive);
         taskInLayout = findViewById(R.id.tasksinnactive);
         projectLayout = findViewById(R.id.projactive);
@@ -96,10 +100,16 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         loadTasks();
         loadProjectLists();
         loadTimeData();
+        loadIdeas();
 
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TaskAdapter(this, tasks, this);
         taskRecyclerView.setAdapter(adapter);
+
+        ideasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ideasAdapter = new IdeasAdapter(this, links, this);
+        ideasRecyclerView.setAdapter(ideasAdapter);
+
         if (!allProjectLists.isEmpty()) {
             currProj = allProjectLists.get(currProjList);
         } else {
@@ -113,7 +123,6 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
 
         projAdapter = new ProjAdapter(this, allProjectLists, this, this);
         projRecyclerView.setAdapter(projAdapter);
-
         projRecyclerView.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -136,6 +145,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         addTask.setOnClickListener(v -> showAddTaskDialog());
         addTime.setOnClickListener(v -> showAddTimeDialog());
         addProj.setOnClickListener(v -> showAddProjDialog());
+        addIdea.setOnClickListener(v -> showAddIdeaDialog());
         home.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -207,6 +217,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         dialog.show();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void showAddTaskDialog() {
         View dialogView = getLayoutInflater().inflate(R.layout.add_goal_dialog,null);
         EditText taskInput = dialogView.findViewById(R.id.goalName);
@@ -232,6 +243,32 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         dialog.show();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private void showAddIdeaDialog() {
+        View dialogView = getLayoutInflater().inflate(R.layout.add_idea_dialog,null);
+        EditText ideaInput = dialogView.findViewById(R.id.link);
+        ImageView ok = dialogView.findViewById(R.id.okIdea);
+        ImageView cancel = dialogView.findViewById(R.id.cancelIdea);
+        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        ok.setOnClickListener(v -> {
+            String ideaText = ideaInput.getText().toString().trim();
+            if(!ideaText.isEmpty()){
+                links.add(ideaText);
+                ideasAdapter.notifyDataSetChanged();
+                saveData("HobbyIdeas", links);
+            }
+            else{
+                Toast.makeText(hobby_details.this, "Ссылка не может быть пустой", Toast.LENGTH_SHORT).show();
+            }
+            dialog.dismiss();
+        });
+        cancel.setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
     private void showAddProjDialog(){
         View dialogView = getLayoutInflater().inflate(R.layout.add_proj_dialog, null);
         EditText projInput = dialogView.findViewById(R.id.projName);
@@ -291,7 +328,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
             if (!mapData.containsKey(date)){
                 mapData.put(date, new ArrayList<>());
             }
-            mapData.get(date).add(timeText);
+            Objects.requireNonNull(mapData.get(date)).add(timeText);
             currHobby.setMapData(mapData);
             saveData("TimeData", mapData);
             updateWholeTimeInfo();
@@ -394,6 +431,12 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         tasks = loadedTasks != null? loadedTasks : new ArrayList<>();
     }
 
+    private void loadIdeas(){
+        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        ArrayList<String> loadedIdeas = loadData("HobbyIdeas", type);
+        links = loadedIdeas != null? loadedIdeas : new ArrayList<>();
+    }
+
     private void loadTimeData(){
         Type type = new TypeToken<Map<String, ArrayList<String>>>() {}.getType();
         Map<String, ArrayList<String>> loadedTimeData = loadData("TimeData", type);
@@ -405,6 +448,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         allProjectLists = loadedLists != null ? loadedLists : new ArrayList<>();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void deleteProject(){
         allProjectLists.remove(currProjList);
         if (currProjList >= allProjectLists.size()){
@@ -422,6 +466,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         editor.apply();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onGoalsChanged(ArrayList<Project> goals, ProjectAdapter adapter) {
         this.goals = goals;
@@ -435,7 +480,7 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     @Override
     public void onClickDelete(int position) {
         tasks.remove(position);
-        adapter.notifyDataSetChanged();
+        adapter.notifyItemRemoved(position);
         saveData("HobbyTasks", tasks);
     }
 
@@ -448,5 +493,12 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         allProjectLists.set(currProjList, currProj);
         saveGoals(currProj);
         saveData("ProjectsData", allProjectLists);
+    }
+
+    @Override
+    public void onClickDeleteIdea(int position) {
+        links.remove(position);
+        ideasAdapter.notifyItemRemoved(position);
+        saveData("HobbyIdeas", links);
     }
 }

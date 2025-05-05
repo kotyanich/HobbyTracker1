@@ -473,6 +473,69 @@
                         android:textSize="24sp" />
                 </FrameLayout>
             </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="#ECE7E0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="@string/ideas"
+                    android:textSize="32sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/line_5"
+                    android:contentDescription="@string/line"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+                <ImageView
+                    android:id="@+id/ideasList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/frame_288950"
+                    android:contentDescription="@string/list"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ideasItems"
+                    android:layout_width="340dp"
+                    android:layout_height="260dp"
+                    android:layout_margin="20dp"
+                    android:contentDescription="@string/recycler"/>
+            </FrameLayout>
+            <FrameLayout
+                android:id="@+id/ideaaddbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#EAE5DE"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/addIdea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/frame_288916_1_"
+                    android:contentDescription="@string/add_task_button"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:text="@string/add_idea"
+                    android:textSize="24sp" />
+            </FrameLayout>
         </LinearLayout>
     </ScrollView>
 
