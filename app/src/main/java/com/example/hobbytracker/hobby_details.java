@@ -37,7 +37,7 @@ import java.util.Objects;
 public class hobby_details extends AppCompatActivity implements ProjAdapter.onGoalsChangedListener, TasksDeleteInterface,IdeaDeleteInterface, ProjectAdapter.OnDeleteListener{
 
     private ArrayList<Task> tasks = new ArrayList<>();
-    private ArrayList<String> links = new ArrayList<>();
+    private ArrayList<Links> links = new ArrayList<>();
     private RecyclerView taskRecyclerView;
     RecyclerView ideasRecyclerView;
     private ViewPager2 projRecyclerView;
@@ -247,15 +247,18 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     private void showAddIdeaDialog() {
         View dialogView = getLayoutInflater().inflate(R.layout.add_idea_dialog,null);
         EditText ideaInput = dialogView.findViewById(R.id.link);
+        EditText ideaDescr = dialogView.findViewById(R.id.descr_idea);
         ImageView ok = dialogView.findViewById(R.id.okIdea);
         ImageView cancel = dialogView.findViewById(R.id.cancelIdea);
         AlertDialog.Builder builder= new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
         ok.setOnClickListener(v -> {
-            String ideaText = ideaInput.getText().toString().trim();
-            if(!ideaText.isEmpty()){
-                links.add(ideaText);
+            String url = ideaInput.getText().toString().trim();
+            String description = ideaDescr.getText().toString().trim();
+            if(!url.isEmpty() && !description.isEmpty()){
+                Links link = new Links(description, url);
+                links.add(link);
                 ideasAdapter.notifyDataSetChanged();
                 saveData("HobbyIdeas", links);
             }
@@ -432,8 +435,8 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
     }
 
     private void loadIdeas(){
-        Type type = new TypeToken<ArrayList<String>>() {}.getType();
-        ArrayList<String> loadedIdeas = loadData("HobbyIdeas", type);
+        Type type = new TypeToken<ArrayList<Links>>() {}.getType();
+        ArrayList<Links> loadedIdeas = loadData("HobbyIdeas", type);
         links = loadedIdeas != null? loadedIdeas : new ArrayList<>();
     }
 

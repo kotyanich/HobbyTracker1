@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHolder> {
     Context context;
-    ArrayList<String> links;
+    ArrayList<Links> links;
 
-    public IdeasAdapter(Context context, ArrayList<String> links, IdeaDeleteInterface listener) {
+    public IdeasAdapter(Context context, ArrayList<Links> links, IdeaDeleteInterface listener) {
         this.context = context;
         this.links = links;
         this.listener = listener;
@@ -37,8 +37,9 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
 
     @Override
     public void onBindViewHolder(@NonNull IdeasAdapter.IdeasViewHolder holder, int position) {
-        String link = links.get(position);
-        holder.link.setText(link);
+        Links link = links.get(position);
+        holder.link.setText(link.getUrl());
+        holder.description.setText(link.getDescription());
     }
 
     @Override
@@ -50,10 +51,12 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
 
         ImageView delete;
         TextView link;
+        TextView description;
         public IdeasViewHolder(@NonNull View itemView, IdeaDeleteInterface listener) {
             super(itemView);
             delete = itemView.findViewById(R.id.deleteIdea);
             link = itemView.findViewById(R.id.ideaName);
+            description = itemView.findViewById(R.id.ideaDesc);
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -69,7 +72,6 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
                 public void onClick(View v) {
                     String url = link.getText().toString();
                     openLink(url);
-
                 }
             });
         }

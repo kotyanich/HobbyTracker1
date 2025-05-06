@@ -32,6 +32,8 @@
     <string name="ideas">Inspiracion</string>
     <string name="add_idea">Agregar URL</string>
     <string name="input_idea">Escribe URL</string>
+    <string name="descr">Descripcion</string>
+    <string name="descr_input">Aun no hay descripcion...</string>
     <string-array name="quotes">
         <item>Crea hasta si da miedo!</item>
         <item>Tu hobby es tu superpoder!</item>

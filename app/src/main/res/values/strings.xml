@@ -60,7 +60,9 @@
     <string name="delete_proj">Вы действительно\nхотите удалить проект?</string>
     <string name="ideas">Вдохновение</string>
     <string name="add_idea">Добавить ссылку</string>
-    <string name="input_idea">Введите ссылку</string>
+    <string name="input_idea">Вставьте ссылку</string>
+    <string name="descr">Описание</string>
+    <string name="descr_input">Описания еще нет...</string>
     <string-array name="quotes">
         <item>Твори, даже если страшно!</item>
         <item>Твое хобби — твоя суперсила!</item>

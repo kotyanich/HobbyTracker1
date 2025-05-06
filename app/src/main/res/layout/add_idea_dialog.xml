@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/mix"
+        app:srcCompat="@drawable/add_link_overlay"
         android:contentDescription="@string/list"/>
 
     <LinearLayout
@@ -51,7 +51,21 @@
                 android:inputType="text"
                 android:autofillHints=""/>
         </LinearLayout>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:fontFamily="@font/source_serif_pro_semibold"
+            android:text="@string/descr"
+            android:layout_marginTop="15dp"/>
+        <EditText
+            android:id="@+id/descr_idea"
+            android:layout_width="315dp"
+            android:layout_height="51dp"
+            android:backgroundTint="#DEB3A3"
+            android:hint="@string/descr_input"
+            android:inputType="text"
+            android:autofillHints=""/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
