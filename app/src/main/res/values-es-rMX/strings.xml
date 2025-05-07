@@ -33,7 +33,17 @@
     <string name="add_idea">Agregar URL</string>
     <string name="input_idea">Escribe URL</string>
     <string name="descr">Descripcion</string>
-    <string name="descr_input">Aun no hay descripcion...</string>
+    <string name="descr_input">Aun no hay descripcion…</string>
+    <string name="new_notif">Notificaciones</string>
+    <string name="day_of_weeks">Días de semana</string>
+    <string name="monday">Lu</string>
+    <string name="tuesday">Ma</string>
+    <string name="wednesday">Mie</string>
+    <string name="thursday">Ju</string>
+    <string name="friday">Vie</string>
+    <string name="Saturday">Sa</string>
+    <string name="Sunday">Do</string>
+    <string name="time_of_notif">Hora de notificaciones</string>
     <string-array name="quotes">
         <item>Crea hasta si da miedo!</item>
         <item>Tu hobby es tu superpoder!</item>

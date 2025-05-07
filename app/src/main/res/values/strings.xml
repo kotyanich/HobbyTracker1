@@ -62,7 +62,18 @@
     <string name="add_idea">Добавить ссылку</string>
     <string name="input_idea">Вставьте ссылку</string>
     <string name="descr">Описание</string>
-    <string name="descr_input">Описания еще нет...</string>
+    <string name="descr_input">Описания еще нет…</string>
+    <string name="new_notif">Новое напоминание</string>
+    <string name="day_of_weeks">Дни недели</string>
+    <string name="monday">Пн</string>
+    <string name="tuesday">Вт</string>
+    <string name="wednesday">Ср</string>
+    <string name="thursday">Чт</string>
+    <string name="friday">Пт</string>
+    <string name="Saturday">Сб</string>
+    <string name="Sunday">Вс</string>
+    <string name="time_of_notif">Время напоминания</string>
+    <string name="day" translatable="false">day</string>
     <string-array name="quotes">
         <item>Твори, даже если страшно!</item>
         <item>Твое хобби — твоя суперсила!</item>

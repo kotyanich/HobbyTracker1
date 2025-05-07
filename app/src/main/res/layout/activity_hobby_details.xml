@@ -476,7 +476,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:background="#ECE7E0"
                 android:orientation="vertical">
 
@@ -519,7 +519,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#EAE5DE"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp">
 
                 <ImageView
                     android:id="@+id/addIdea"

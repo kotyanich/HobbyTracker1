@@ -20,11 +20,13 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
     Context context;
     ArrayList<Hobby> hobby;
     private final RecycleViewInterface listener;
+    private final NotificationsInterface notifListener;
 
-    public HobbyAdapter(Context context, ArrayList<Hobby> hobby, RecycleViewInterface listener) {
+    public HobbyAdapter(Context context, ArrayList<Hobby> hobby, RecycleViewInterface listener, NotificationsInterface notifListener) {
         this.context = context;
         this.hobby = hobby;
         this.listener = listener;
+        this.notifListener = notifListener;
     }
 
     @NonNull
@@ -32,7 +34,7 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
     public HobbyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.item, parent, false);
-        return new HobbyAdapter.MyViewHolder(view, listener);
+        return new HobbyAdapter.MyViewHolder(view, listener, notifListener);
     }
 
     @Override
@@ -40,6 +42,12 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
         Hobby item = hobby.get(position);
         holder.textView.setText(item.name);
         holder.imageView.setImageResource(item.image);
+        NotifSettings settings = item.getNotifSettings();
+        if (settings != null && settings.isEnabled() && !settings.getSelectedDays().isEmpty()) {
+            holder.notifications.setImageResource(R.drawable.silver);
+        } else {
+            holder.notifications.setImageResource(R.drawable.bronze);
+        }
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, hobby_details.class);
             intent.putExtra("hobbyName", item.getName());
@@ -60,10 +68,12 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView textView;
-        public MyViewHolder(@NonNull View itemView, RecycleViewInterface listener) {
+        ImageView notifications;
+        public MyViewHolder(@NonNull View itemView, RecycleViewInterface listener, NotificationsInterface notifListener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.logo);
             textView = itemView.findViewById(R.id.hobbyname);
+            notifications = itemView.findViewById(R.id.notifications);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -86,6 +96,15 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
                         if (pos!=RecyclerView.NO_POSITION){
                             listener.OnItemClick(pos);
                         }
+                    }
+                }
+            });
+            notifications.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (notifListener!=null){
+                        int pos = getAdapterPosition();
+                        if (pos!=RecyclerView.NO_POSITION) notifListener.onNotifClick(pos);
                     }
                 }
             });

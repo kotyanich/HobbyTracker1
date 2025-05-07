@@ -13,12 +13,14 @@ public class Hobby {
     public int image;
     private final ArrayList<Task> tasks;
     private final Map<String, List<String>> mapData;
+    private NotifSettings notifSettings;
 
     public Hobby(String name, int image) {
         this.name = name;
         this.image = image;
         this.tasks = new ArrayList<>();
         this.mapData = new HashMap<>();
+        this.notifSettings = new NotifSettings();
     }
 
     public ArrayList<Task> getTasks() {
@@ -120,4 +122,11 @@ public class Hobby {
     }
 
 
+    public NotifSettings getNotifSettings() {
+        return notifSettings;
+    }
+
+    public void setNotifSettings(NotifSettings notifSettings) {
+        this.notifSettings = notifSettings;
+    }
 }
