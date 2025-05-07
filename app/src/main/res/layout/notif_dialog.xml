@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:text="@string/day_of_weeks"
             android:textSize="24sp" />
@@ -42,7 +42,7 @@
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -272,7 +272,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:text="@string/time_of_notif"
             android:textSize="24sp" />

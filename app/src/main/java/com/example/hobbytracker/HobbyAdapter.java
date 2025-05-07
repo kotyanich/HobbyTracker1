@@ -44,9 +44,9 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
         holder.imageView.setImageResource(item.image);
         NotifSettings settings = item.getNotifSettings();
         if (settings != null && settings.isEnabled() && !settings.getSelectedDays().isEmpty()) {
-            holder.notifications.setImageResource(R.drawable.silver);
+            holder.notifications.setImageResource(R.drawable.notif);
         } else {
-            holder.notifications.setImageResource(R.drawable.bronze);
+            holder.notifications.setImageResource(R.drawable.notif);
         }
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, hobby_details.class);

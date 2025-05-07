@@ -8,8 +8,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Handler;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -19,11 +17,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class BootReceiver extends BroadcastReceiver {
-    private static final String TAG = "BootReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
-            Log.d(TAG, "Boot completed received, restoring notifications");
             SharedPreferences sharedPreferences = context.getSharedPreferences("HobbiesData", MODE_PRIVATE);
             Gson gson = new Gson();
             String json = sharedPreferences.getString("HobbyList", null);
@@ -36,7 +32,6 @@ public class BootReceiver extends BroadcastReceiver {
                         NotifSettings settings = hobby.getNotifSettings();
                         if (settings != null && settings.isEnabled() && !settings.getSelectedDays().isEmpty()) {
                             scheduleNotificationsOnBoot(context, hobby);
-                            Log.d(TAG, "Scheduled notifications for hobby: " + hobby.getName());
                         }
                     }
                 }
@@ -46,10 +41,6 @@ public class BootReceiver extends BroadcastReceiver {
 
     private void scheduleNotificationsOnBoot(Context context, Hobby hobby) {
         NotifSettings settings = hobby.getNotifSettings();
-        if (settings == null) {
-            Log.e(TAG, "Notification settings null for hobby: " + hobby.getName());
-            return;
-        }
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         for (Integer dayOfWeek : settings.getSelectedDays()) {

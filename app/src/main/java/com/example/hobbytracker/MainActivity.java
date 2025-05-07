@@ -202,10 +202,8 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
 
     private void scheduleNotifications(Hobby hobby) {
         NotifSettings settings = hobby.getNotifSettings();
-        if (!settings.isEnabled() || settings.getSelectedDays().isEmpty()) return;
         cancelExistingNotifications(hobby);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if (alarmManager == null) return;
         for (Integer dayOfWeek : settings.getSelectedDays()) {
             int requestCode = generateRequestCode(hobby, dayOfWeek);
             Intent intent = new Intent(this, NotificationReceiver.class);
@@ -232,8 +230,6 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
                     AlarmManager.INTERVAL_DAY * 7,
                     pendingIntent
             );
-
-
         }
     }
 
