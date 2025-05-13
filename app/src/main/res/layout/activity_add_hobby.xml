@@ -10,351 +10,351 @@
     tools:context=".add_hobby">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="#ECE7E0"
+                android:contentDescription="@string/back_button"
+                android:onClick="goToMainScreen"
+                app:srcCompat="@drawable/back" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="@string/new_hobby"
+                android:textSize="36sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="64dp"
+                android:contentDescription="@string/pattern"
+                app:srcCompat="@drawable/smth" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="165dp"
+                android:contentDescription="@string/line"
+                app:srcCompat="@drawable/bar" />
+
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_alignParentTop="true">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="55dp"
-                    android:backgroundTint="#ECE7E0"
-                    android:contentDescription="@string/back_button"
-                    android:onClick="goToMainScreen"
-                    app:srcCompat="@drawable/back" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="120dp"
-                    android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="@string/new_hobby"
-                    android:textSize="36sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="64dp"
-                    android:contentDescription="@string/pattern"
-                    app:srcCompat="@drawable/smth" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="165dp"
-                    android:contentDescription="@string/line"
-                    app:srcCompat="@drawable/bar" />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="@string/input_hobby"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/textView2"
+            <EditText
+                android:id="@+id/ourHobby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:autofillHints=""
+                android:backgroundTint="#DEB3A3"
+                android:fontFamily="@font/source_serif_pro"
+                android:hint="@string/hint_new_hobby"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/source_serif_pro_semibold"
+            android:text="@string/choose_new_ico"
+            android:textSize="24sp" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp">
+
+            <GridLayout
+                android:id="@+id/grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/cactus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_marginStart="16dp">
+
+                    <ImageView
+                        android:id="@+id/ico1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/cactus_ico" />
+
+                    <ImageView
+                        android:id="@+id/ico1_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/select_icon_frame"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/crocheting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_marginStart="16dp">
+
+                    <ImageView
+                        android:id="@+id/ico2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/roll_ico" />
+
+                    <ImageView
+                        android:id="@+id/ico2_red"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/crocheting_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/drawing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_marginStart="16dp">
+
+                    <ImageView
+                        android:id="@+id/ico3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/draw_ico" />
+
+                    <ImageView
+                        android:id="@+id/ico3_red"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/drawing_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="3"
+                    android:layout_marginStart="16dp">
+
+                    <ImageView
+                        android:id="@+id/ico4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/book" />
+
+                    <ImageView
+                        android:id="@+id/ico4_red"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/book_red"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/singing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="0"
                     android:layout_marginStart="16dp"
-                    android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="@string/input_hobby"
-                    android:textSize="24sp" />
+                    android:layout_marginTop="8dp">
 
-                <EditText
-                    android:id="@+id/ourHobby"
+                    <ImageView
+                        android:id="@+id/ico5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/singing" />
+
+                    <ImageView
+                        android:id="@+id/ico5_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/singing_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/dancing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:autofillHints=""
-                    android:backgroundTint="#DEB3A3"
-                    android:fontFamily="@font/source_serif_pro"
-                    android:hint="@string/hint_new_hobby"
-                    android:inputType="text"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ico6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/dancing" />
+
+                    <ImageView
+                        android:id="@+id/ico6_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/dancing_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="2"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ico7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/photo" />
+
+                    <ImageView
+                        android:id="@+id/ico7_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/photo_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/cooking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="1"
+                    android:layout_column="3"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ico8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/cooking" />
+
+                    <ImageView
+                        android:id="@+id/ico8_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/cooking_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/music"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/ico9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/ico"
+                        app:srcCompat="@drawable/music" />
+
+                    <ImageView
+                        android:id="@+id/ico9_red"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ico_red"
+                        android:src="@drawable/music_red"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </GridLayout>
+        </ScrollView>
+
+
+        <FrameLayout
+            android:id="@+id/button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#ECE7E0"
+                android:contentDescription="@string/submit_button"
+                android:src="@drawable/create_hobby_button" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal|center_vertical"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="@string/choose_new_ico"
+                android:text="@string/create_hobby"
                 android:textSize="24sp" />
-
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_marginTop="16dp">
-
-                <GridLayout
-                    android:id="@+id/grid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <FrameLayout
-                        android:id="@+id/cactus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_marginStart="16dp">
-
-                        <ImageView
-                            android:id="@+id/ico1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/cactus_ico" />
-
-                        <ImageView
-                            android:id="@+id/ico1_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/select_icon_frame"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/crocheting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_marginStart="16dp">
-
-                        <ImageView
-                            android:id="@+id/ico2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/roll_ico" />
-
-                        <ImageView
-                            android:id="@+id/ico2_red"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/crocheting_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/drawing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_marginStart="16dp">
-
-                        <ImageView
-                            android:id="@+id/ico3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/draw_ico" />
-
-                        <ImageView
-                            android:id="@+id/ico3_red"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/drawing_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/book"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:layout_marginStart="16dp">
-
-                        <ImageView
-                            android:id="@+id/ico4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/book" />
-
-                        <ImageView
-                            android:id="@+id/ico4_red"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/book_red"
-                            android:visibility="gone" />
-
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/singing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:id="@+id/ico5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/singing" />
-
-                        <ImageView
-                            android:id="@+id/ico5_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/singing_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/dancing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:id="@+id/ico6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/dancing" />
-
-                        <ImageView
-                            android:id="@+id/ico6_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/dancing_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/photo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:id="@+id/ico7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/photo" />
-
-                        <ImageView
-                            android:id="@+id/ico7_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/photo_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/cooking"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="3"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:id="@+id/ico8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/cooking" />
-
-                        <ImageView
-                            android:id="@+id/ico8_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/cooking_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:id="@+id/music"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="0"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp">
-
-                        <ImageView
-                            android:id="@+id/ico9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/ico"
-                            app:srcCompat="@drawable/music" />
-
-                        <ImageView
-                            android:id="@+id/ico9_red"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:contentDescription="@string/ico_red"
-                            android:src="@drawable/music_red"
-                            android:visibility="gone" />
-                    </FrameLayout>
-                </GridLayout>
-            </ScrollView>
-
-
-            <FrameLayout
-                android:id="@+id/button_submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-
-                <ImageButton
-                    android:id="@+id/submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="#ECE7E0"
-                    android:contentDescription="@string/submit_button"
-                    android:src="@drawable/create_hobby_button" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="@string/create_hobby"
-                    android:textSize="24sp" />
-            </FrameLayout>
-        </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
 
 
     <FrameLayout

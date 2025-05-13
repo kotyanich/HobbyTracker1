@@ -35,7 +35,7 @@ public class achievements extends AppCompatActivity {
         achievementsManager.loadAchievements();
         achievementsManager.updateStatistics();
         ArrayList<AchievementsData> logros = achievementsManager.getAchievements();
-        adapter = new LogrosAdapter(this, logros);
+        adapter = new LogrosAdapter(this,achievementsManager);
         logrosRecyclerView.setAdapter(adapter);
         ImageView home = findViewById(R.id.home);
         home.setOnClickListener(v -> {

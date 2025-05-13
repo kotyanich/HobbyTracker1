@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="125dp"
-            android:src="@drawable/line_1"
+            android:src="@drawable/line_11"
             android:contentDescription="@string/line"/>
 
         <ImageView

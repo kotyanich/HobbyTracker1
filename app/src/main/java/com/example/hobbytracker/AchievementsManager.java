@@ -209,7 +209,7 @@ public class AchievementsManager {
                     ArrayList<String> timeEntries = dateEntry.getValue();
                     if (timeEntries != null){
                         for (String timeEntry : timeEntries){
-                                totalTime += Integer.parseInt(timeEntry);
+                            totalTime += Integer.parseInt(timeEntry);
                         }
                     }
                 }

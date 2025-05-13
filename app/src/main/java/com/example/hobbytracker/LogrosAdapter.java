@@ -1,9 +1,12 @@
 package com.example.hobbytracker;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -11,15 +14,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
 public class LogrosAdapter extends RecyclerView.Adapter<LogrosAdapter.LogrosViewHolder> {
     private final Context context;
     private final ArrayList<AchievementsData> logros;
-    public LogrosAdapter(Context context, ArrayList<AchievementsData> logros) {
+    public int balance;
+    AchievementsManager manager;
+    public LogrosAdapter(Context context, AchievementsManager manager) {
         this.context = context;
-        this.logros = logros;
+        this.manager = manager;
+        this.logros = manager.getAchievements();
+        loadBalance();
     }
 
     @NonNull
@@ -37,11 +49,10 @@ public class LogrosAdapter extends RecyclerView.Adapter<LogrosAdapter.LogrosView
         String descr;
         int threshold;
         holder.progress.setProgress(achievement.getProgressPercentage());
-        int medalResource;
         if (achievement.getCurrLevel() < 1){
-                descr = achievement.getBronzeDesc();
-                threshold = achievement.getBronzeThreshold();
-                holder.medal.setImageResource(R.drawable.nothing);
+            descr = achievement.getBronzeDesc();
+            threshold = achievement.getBronzeThreshold();
+            holder.medal.setImageResource(R.drawable.nothing);
         }
         else if (achievement.getCurrLevel() == 1){
             descr = achievement.getSilverDesc();
@@ -60,23 +71,81 @@ public class LogrosAdapter extends RecyclerView.Adapter<LogrosAdapter.LogrosView
         }
         String prog = descr + " (" + achievement.getCurrProgress() + "/" + threshold + ")";
         holder.description.setText(prog);
+        if (!achievement.isHasGotBronze() && achievement.getCurrLevel() >=1)
+            holder.bronzeReward.setVisibility(View.VISIBLE);
+
+        else if (!achievement.isHasGotSilver() && achievement.getCurrLevel() >=2)
+            holder.silverReward.setVisibility(View.VISIBLE);
+
+        else if (!achievement.isHasGotGold() && achievement.getCurrLevel() >=3)
+            holder.goldReward.setVisibility(View.VISIBLE);
+        else{
+            holder.bronzeReward.setVisibility(View.GONE);
+            holder.silverReward.setVisibility(View.GONE);
+            holder.goldReward.setVisibility(View.GONE);
+        }
+        holder.bronzeReward.setOnClickListener(v ->{
+            achievement.setHasGotBronze(true);
+            holder.bronzeReward.setVisibility(View.GONE);
+            if (!achievement.isHasGotSilver() && achievement.getCurrLevel() >=2)
+                holder.silverReward.setVisibility(View.VISIBLE);
+            else if (!achievement.isHasGotGold() && achievement.getCurrLevel() >=3)
+                holder.goldReward.setVisibility(View.VISIBLE);
+            balance += 10;
+            saveBalance();
+            manager.saveAchievements();
+        });
+        holder.silverReward.setOnClickListener(v -> {
+            achievement.setHasGotSilver(true);
+            holder.silverReward.setVisibility(View.GONE);
+            if (!achievement.isHasGotGold() && achievement.getCurrLevel() >=3)
+                holder.goldReward.setVisibility(View.VISIBLE);
+            balance += 20;
+            saveBalance();
+            manager.saveAchievements();
+        });
+        holder.goldReward.setOnClickListener(v -> {
+            achievement.setHasGotGold(true);
+            holder.goldReward.setVisibility(View.GONE);
+            balance += 30;
+            saveBalance();
+            manager.saveAchievements();
+        });
     }
 
     @Override
     public int getItemCount() {
         return logros.size();
     }
-    public static class LogrosViewHolder extends RecyclerView.ViewHolder{
+    public static class LogrosViewHolder extends RecyclerView.ViewHolder {
         TextView logroName;
         ProgressBar progress;
         ImageView medal;
         TextView description;
+        FrameLayout bronzeReward;
+        FrameLayout silverReward;
+        FrameLayout goldReward;
+
         public LogrosViewHolder(@NonNull View itemView) {
             super(itemView);
             logroName = itemView.findViewById(R.id.logroTitle);
             progress = itemView.findViewById(R.id.progressBar);
             medal = itemView.findViewById(R.id.medal);
             description = itemView.findViewById(R.id.description);
+            bronzeReward = itemView.findViewById(R.id.bronze_reward);
+            silverReward = itemView.findViewById(R.id.silver_reward);
+            goldReward = itemView.findViewById(R.id.gold_reward);
         }
+    }
+    public void saveBalance(){
+        SharedPreferences prefs = context.getSharedPreferences("AchData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("Balance", balance);
+        editor.apply();
+    }
+
+    public void loadBalance(){
+        SharedPreferences prefs = context.getSharedPreferences("AchData", Context.MODE_PRIVATE);
+        balance = prefs.getInt("Balance", 0);
     }
 }

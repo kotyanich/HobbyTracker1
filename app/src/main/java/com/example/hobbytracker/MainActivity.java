@@ -78,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         adapter = new HobbyAdapter(this, hobby, this, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ImageView shop = findViewById(R.id.shop);
+        shop.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Shop.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        });
         ImageView logros = findViewById(R.id.logros);
         logros.setOnClickListener(v -> goToLogros());
         requestNotificationPermission();

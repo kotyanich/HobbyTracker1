@@ -74,6 +74,17 @@
     <string name="Sunday">Вс</string>
     <string name="time_of_notif">Время напоминания</string>
     <string name="day" translatable="false">day</string>
+    <string name="shop_item" translatable="false">shop_item</string>
+    <string name="choose">Выбрать</string>
+    <string name="price" translatable="false">50</string>
+    <string name="coin" translatable="false">coin</string>
+    <string name="tick" translatable="false">tick</string>
+    <string name="shop_title">Магазин</string>
+    <string name="money">Ты уже заработал\n%1$d </string>
+    <string name="reward" translatable="false">reward button</string>
+    <string name="bronze_price" translatable="false">10</string>
+    <string name="silver_price" translatable="false">20</string>
+    <string name="gold_price" translatable="false">30</string>
     <string-array name="quotes">
         <item>Твори, даже если страшно!</item>
         <item>Твое хобби — твоя суперсила!</item>
