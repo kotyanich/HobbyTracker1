@@ -1,7 +1,10 @@
 package com.example.hobbytracker;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -49,6 +52,18 @@ public class Shop extends AppCompatActivity {
         RecyclerView shopRecycler = findViewById(R.id.recycler);
         shopRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         shopRecycler.setAdapter(new ShopAdapter(shopItems, this, this, balanceText));
+        ImageView home = findViewById(R.id.home);
+        home.setOnClickListener(v ->{
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+        ImageView achievements = findViewById(R.id.logros);
+        achievements.setOnClickListener(v ->{
+            Intent intent = new Intent(this, com.example.hobbytracker.achievements.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
     }
     private int getSavedBalance() {
         SharedPreferences prefs = getSharedPreferences("AchData", MODE_PRIVATE);

@@ -34,10 +34,16 @@ public class achievements extends AppCompatActivity {
         achievementsManager = new AchievementsManager(this);
         achievementsManager.loadAchievements();
         achievementsManager.updateStatistics();
-        ArrayList<AchievementsData> logros = achievementsManager.getAchievements();
         adapter = new LogrosAdapter(this,achievementsManager);
         logrosRecyclerView.setAdapter(adapter);
         ImageView home = findViewById(R.id.home);
+        ImageView shop = findViewById(R.id.shop);
+        shop.setOnClickListener(v ->{
+            Intent intent = new Intent(this, Shop.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+
         home.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

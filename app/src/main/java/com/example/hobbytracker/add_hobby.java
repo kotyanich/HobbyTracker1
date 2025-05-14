@@ -81,7 +81,12 @@ public class add_hobby extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
-
+        ImageView shop = findViewById(R.id.shop);
+        shop.setOnClickListener(v ->{
+            Intent intent = new Intent(this, Shop.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
         submit.setOnClickListener(v -> {
             String hobby = ourHobby.getText().toString().trim();
             if (selectedImageResId == -1){

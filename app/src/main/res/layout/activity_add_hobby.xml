@@ -372,7 +372,7 @@
             app:srcCompat="@drawable/bottom_panel" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/shop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
