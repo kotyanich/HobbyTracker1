@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
     HobbyAdapter adapter;
     SharedPreferences sharedPreferences;
     String[] quotes;
-    int[] mascots;
     private List<Integer> selectedDays = new ArrayList<>();
     Random random = new Random();
     public static final int SUNDAY = 1;
@@ -68,9 +67,23 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         quotes = getResources().getStringArray(R.array.quotes);
         TextView bubbleText = findViewById(R.id.bubbleText);
         bubbleText.setText(getRandomQuote());
-        mascots = new int[]{R.drawable.regular, R.drawable.peace, R.drawable.love1};
         ImageView mascot = findViewById(R.id.mascot);
-        mascot.setImageResource(getRandomMascot());
+        SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+        int[] images = {
+                R.drawable.cooker,
+                R.drawable.regular,
+                R.drawable.rocker,
+                R.drawable.painter,
+                R.drawable.gardener,
+                R.drawable.photographer,
+                R.drawable.dancer
+        };
+        int savedMascot = prefs.getInt("Mascot", -1);
+        if (savedMascot == -1){
+            savedMascot = images[1];
+            prefs.edit().putInt("Mascot", savedMascot).apply();
+        }
+        mascot.setImageResource(savedMascot);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         add = findViewById(R.id.addHobby);
         sharedPreferences = getSharedPreferences("HobbiesData", MODE_PRIVATE);
@@ -82,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         shop.setOnClickListener(v -> {
             Intent intent = new Intent(this, Shop.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            startActivityForResult(intent, 2);
         });
         ImageView logros = findViewById(R.id.logros);
         logros.setOnClickListener(v -> goToLogros());
@@ -116,10 +129,6 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         return quotes[random.nextInt(quotes.length)];
     }
 
-    private int getRandomMascot() {
-        return mascots[random.nextInt(mascots.length)];
-    }
-
     public void GoToAddHobby(View v) {
         Intent intent = new Intent(this, add_hobby.class);
         startActivityForResult(intent, 1);
@@ -141,6 +150,13 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
                 manager.saveAchievements();
             } else {
                 Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (requestCode == 2 && resultCode == RESULT_OK){
+            int mascotImage = data.getIntExtra("Mascot", -1);
+            if (mascotImage != -1){
+                ImageView mascot = findViewById(R.id.mascot);
+                mascot.setImageResource(mascotImage);
             }
         }
     }

@@ -58,7 +58,7 @@
     <string name="delete_goal_button" translatable="false">delete_goal</string>
     <string name="project">Проект</string>
     <string name="delete_proj">Вы действительно\nхотите удалить проект?</string>
-    <string name="ideas">Вдохновение</string>
+    <string name="ideas">Ссылки и идеи</string>
     <string name="add_idea">Добавить ссылку</string>
     <string name="input_idea">Вставьте ссылку</string>
     <string name="descr">Описание</string>
@@ -80,7 +80,7 @@
     <string name="coin" translatable="false">coin</string>
     <string name="tick" translatable="false">tick</string>
     <string name="shop_title">Магазин</string>
-    <string name="money">Ты уже заработал\n%1$d </string>
+    <string name="money">Ты уже заработал\n%1$d монет!</string>
     <string name="reward" translatable="false">reward button</string>
     <string name="bronze_price" translatable="false">10</string>
     <string name="silver_price" translatable="false">20</string>

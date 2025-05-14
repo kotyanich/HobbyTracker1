@@ -46,7 +46,7 @@
     <string name="time_of_notif">Hora de notificaciones</string>
     <string name="choose">Elegir</string>
     <string name="shop_title">Tienda</string>
-    <string name="money">Has ganado\n%1$d </string>
+    <string name="money">Has ganado\n%1$d monedas!</string>
     <string-array name="quotes">
         <item>Crea hasta si da miedo!</item>
         <item>Tu hobby es tu superpoder!</item>

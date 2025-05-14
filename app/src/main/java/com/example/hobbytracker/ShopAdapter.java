@@ -1,5 +1,11 @@
 package com.example.hobbytracker;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,16 +13,26 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     ArrayList<ShopItem> shopItems;
-    public ShopAdapter(ArrayList<ShopItem> shopItems) {
+    int  balance;
+    Context context;
+    Activity activity;
+    TextView balanceText;
+    public ShopAdapter(ArrayList<ShopItem> shopItems, Context context, Activity activity, TextView balanceText) {
         this.shopItems = shopItems;
+        this.context = context;
+        this.activity = activity;
+        this.balanceText = balanceText;
+        updateBalance();
     }
 
     @NonNull
@@ -46,6 +62,33 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             holder.check.setVisibility(View.VISIBLE);
             holder.price.setVisibility(View.GONE);
         }
+        holder.price.setOnClickListener(v ->{
+            if (balance >= 50){
+                balance -= 50;
+                shopItem.setBought(true);
+                saveBalance();
+                holder.price.setVisibility(View.GONE);
+                holder.choose.setVisibility(View.VISIBLE);
+                balanceText.setText(context.getString(R.string.money, balance));
+            }
+            else Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+        });
+        holder.choose.setOnClickListener(v ->{
+            for (ShopItem item : shopItems)
+                item.setSelected(false);
+            holder.choose.setVisibility(View.GONE);
+            holder.check.setVisibility(View.VISIBLE);
+            shopItem.setSelected(true);
+            saveBalance();
+            SharedPreferences prefs = context.getSharedPreferences("Prefs", MODE_PRIVATE);
+            prefs.edit().putInt("Mascot", shopItem.getImage()).apply();
+            notifyDataSetChanged();
+            int mascot = shopItem.getImage();
+            Intent intent = new Intent();
+            intent.putExtra("Mascot", mascot);
+            activity.setResult(AppCompatActivity.RESULT_OK, intent);
+            activity.finish();
+        });
     }
 
     @Override
@@ -65,6 +108,24 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             price = itemView.findViewById(R.id.price);
             choose = itemView.findViewById(R.id.choose);
             check = itemView.findViewById(R.id.tick);
+        }
+    }
+    private void saveBalance() {
+        SharedPreferences prefs = context.getSharedPreferences("AchData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("Balance", balance);
+        for (int i = 0; i < shopItems.size(); i++) {
+            editor.putBoolean("ItemBought_" + i, shopItems.get(i).isBought());
+            editor.putBoolean("ItemSelected_" + i, shopItems.get(i).isSelected());
+        }
+        editor.apply();
+    }
+    private void updateBalance() {
+        SharedPreferences prefs = context.getSharedPreferences("AchData", MODE_PRIVATE);
+        balance = prefs.getInt("Balance", 0);
+        for (int i = 0; i < shopItems.size(); i++) {
+            shopItems.get(i).setBought(prefs.getBoolean("ItemBought_" + i, false));
+            shopItems.get(i).setSelected(prefs.getBoolean("ItemSelected_" + i, false));
         }
     }
 }

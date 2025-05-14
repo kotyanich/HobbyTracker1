@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".Shop">
+    tools:context=".Shop"
+    android:background="#F0EBE4">
     <LinearLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -78,6 +79,14 @@
             android:text="@string/money"
             android:layout_marginTop="35dp"
             android:layout_marginStart="185dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_6"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="190dp"
+            android:contentDescription="@string/line"/>
     </FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

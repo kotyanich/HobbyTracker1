@@ -27,7 +27,10 @@ public class Shop extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+
         });
+
+        SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
         int[] images = {
                 R.drawable.cooker,
                 R.drawable.regular,
@@ -39,16 +42,20 @@ public class Shop extends AppCompatActivity {
         };
         balanceText = findViewById(R.id.balanceText);
         String setBalance = getString(R.string.money, getSavedBalance());
+        updateBalanceText(getSavedBalance());
         balanceText.setText(setBalance);
         for (int i =0; i < images.length; i++)
             shopItems.add(new ShopItem(images[i]));
         RecyclerView shopRecycler = findViewById(R.id.recycler);
         shopRecycler.setLayoutManager(new GridLayoutManager(this, 2));
-        shopRecycler.setAdapter(new ShopAdapter(shopItems));
+        shopRecycler.setAdapter(new ShopAdapter(shopItems, this, this, balanceText));
     }
     private int getSavedBalance() {
         SharedPreferences prefs = getSharedPreferences("AchData", MODE_PRIVATE);
         return prefs.getInt("Balance", 0);
+    }
+    public void updateBalanceText(int balance) {
+        balanceText.setText(getString(R.string.money, balance));
     }
 
 }
