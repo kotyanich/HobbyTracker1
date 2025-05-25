@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="320dp"
+    android:layout_width="380dp"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,12 +8,12 @@
 
     <CheckBox
         android:id="@+id/projectCheckBox"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="#E8D3C9"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/source_serif_pro"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

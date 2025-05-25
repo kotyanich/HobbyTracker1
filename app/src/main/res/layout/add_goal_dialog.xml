@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/list"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/mix"
-        android:contentDescription="@string/list"/>
+        app:srcCompat="@drawable/add_task_overlay"
+        android:background="@android:color/transparent"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

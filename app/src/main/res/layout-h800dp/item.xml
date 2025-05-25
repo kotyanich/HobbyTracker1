@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEE9E2">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="#ECE7E0"
+        android:backgroundTint="#ECE7E0"
+        app:srcCompat="@drawable/hobby_card"
+        android:contentDescription="@string/card"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:background="#00FFFFFF"
+        tools:srcCompat="@drawable/guitar_frame_1_"
+        android:contentDescription="@string/ico"/>
+
+    <TextView
+        android:id="@+id/hobbyname"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/source_serif_pro_bold"
+        android:textSize="24sp" />
+    <ImageView
+        android:id="@+id/notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/notif"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="5dp"/>
+</FrameLayout>

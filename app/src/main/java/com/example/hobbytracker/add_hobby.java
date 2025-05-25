@@ -20,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class add_hobby extends AppCompatActivity {
 
     EditText ourHobby;
-    ImageButton submit;
+    ImageView submit;
     ImageView ico1, ico2, ico3, ico4, ico5, ico6, ico7, ico8, ico9, ico1Red, ico2Red, ico3Red, ico4Red, ico5Red, ico6Red, ico7Red, ico8Red, ico9Red;
     FrameLayout book, cactus, drawing, crocheting, singing, dancing, music, photo, cook;
     int selectedImageResId = -1;

@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -101,6 +103,13 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         logros.setOnClickListener(v -> goToLogros());
         requestNotificationPermission();
     }
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+        int savedMascot = prefs.getInt("Mascot", R.drawable.regular);
+        ImageView mascot = findViewById(R.id.mascot);
+        mascot.setImageResource(savedMascot);
+    }
 
     private void requestNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -157,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
             if (mascotImage != -1){
                 ImageView mascot = findViewById(R.id.mascot);
                 mascot.setImageResource(mascotImage);
+                SharedPreferences prefs = getSharedPreferences("Prefs", MODE_PRIVATE);
+                prefs.edit().putInt("Mascot", mascotImage).apply();
             }
         }
     }
@@ -208,6 +219,9 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         setupDaySelection(dialogView);
         NotifSettings finalSettings = settings;
         ok.setOnClickListener(v -> {

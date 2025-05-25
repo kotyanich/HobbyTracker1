@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@android:color/transparent">
+
     <ImageView
         android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/add_task_overlay"
@@ -20,11 +22,11 @@
         android:layout_marginTop="36dp">
 
             <TextView
-                android:id="@+id/projText"
+                android:id="@+id/goalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="@string/add_proj"
+                android:text="@string/add_task"
                 android:textSize="32sp"
                 android:layout_gravity="center_horizontal"/>
 
@@ -41,13 +43,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp">
             <EditText
-                android:id="@+id/projName"
+                android:id="@+id/goalName"
                 android:layout_width="315dp"
                 android:layout_height="51dp"
                 android:backgroundTint="#DEB3A3"
-                android:hint="@string/input_project"
-                android:autofillHints=""
-                android:inputType="text"/>
+                android:hint="@string/input_task"
+                android:inputType="text"
+                android:autofillHints=""/>
         </LinearLayout>
 
         <LinearLayout
@@ -61,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/cancelProj"
+                    android:id="@+id/cancelGoal"
                     android:layout_width="132dp"
                     android:layout_height="47dp"
                     android:layout_marginEnd="8dp"
@@ -80,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/okProj"
+                    android:id="@+id/okGoal"
                     android:layout_width="134dp"
                     android:layout_height="47dp"
                     android:src="@drawable/ok_add_time"
@@ -93,6 +95,8 @@
                     android:fontFamily="@font/source_serif_pro_semibold"
                     android:textSize="22sp"/>
             </FrameLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

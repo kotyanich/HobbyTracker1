@@ -123,9 +123,21 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     private void updateBalance() {
         SharedPreferences prefs = context.getSharedPreferences("AchData", MODE_PRIVATE);
         balance = prefs.getInt("Balance", 0);
-        for (int i = 0; i < shopItems.size(); i++) {
-            shopItems.get(i).setBought(prefs.getBoolean("ItemBought_" + i, false));
-            shopItems.get(i).setSelected(prefs.getBoolean("ItemSelected_" + i, false));
+        boolean hasSavedState = prefs.contains("ItemBought_0");
+        if (!hasSavedState && shopItems.size() > 1) {
+            shopItems.get(1).setBought(true);
+            shopItems.get(1).setSelected(true);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("ItemBought_1", true);
+            editor.putBoolean("ItemSelected_1", true);
+            editor.apply();
+            SharedPreferences prefsMascot = context.getSharedPreferences("Prefs", MODE_PRIVATE);
+            prefsMascot.edit().putInt("Mascot", shopItems.get(1).getImage()).apply();
+        } else {
+            for (int i = 0; i < shopItems.size(); i++) {
+                shopItems.get(i).setBought(prefs.getBoolean("ItemBought_" + i, false));
+                shopItems.get(i).setSelected(prefs.getBoolean("ItemSelected_" + i, false));
+            }
         }
     }
 }

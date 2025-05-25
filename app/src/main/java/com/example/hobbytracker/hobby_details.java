@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -73,9 +75,10 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         addTask = findViewById(R.id.addTask);
         TextView hobby = findViewById(R.id.hobby);
         ImageView logo = findViewById(R.id.logohobby);
-        ImageButton addTime = findViewById(R.id.addTime);
-        ImageButton home = findViewById(R.id.home);
-        ImageButton profile = findViewById(R.id.profile);
+        ImageView addTime = findViewById(R.id.addTime);
+        ImageView home = findViewById(R.id.home);
+        ImageView shop = findViewById(R.id.shop);
+        ImageView profile = findViewById(R.id.profile);
         deleteProject = findViewById(R.id.deleteProject);
         taskList = findViewById(R.id.taskList);
         taskButtonIn = findViewById(R.id.taskGrey);
@@ -156,6 +159,11 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
+        shop.setOnClickListener(v ->{
+            Intent intent = new Intent(this, Shop.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
         deleteProject.setOnClickListener(v -> showDeleteConfirmationDialog());
         taskButtonIn.setOnClickListener(v-> changeView(true));
         projectsButtonIn.setOnClickListener(v-> changeView(false)
@@ -209,6 +217,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v -> {
             deleteProject();
             dialog.dismiss();
@@ -226,6 +237,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         AlertDialog.Builder builder= new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v -> {
             String taskText = taskInput.getText().toString().trim();
             if(!taskText.isEmpty()){
@@ -253,6 +267,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         AlertDialog.Builder builder= new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v -> {
             String url = ideaInput.getText().toString().trim();
             String description = ideaDescr.getText().toString().trim();
@@ -280,6 +297,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v ->{
             String projText = projInput.getText().toString().trim();
             if (!projText.isEmpty()) {
@@ -321,6 +341,9 @@ public class hobby_details extends AppCompatActivity implements ProjAdapter.onGo
         AlertDialog.Builder builder= new AlertDialog.Builder(this);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v -> {
             int hours = hourPicker.getValue();
             int min = minPicker.getValue();

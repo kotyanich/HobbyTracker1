@@ -4,20 +4,20 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:backgroundTint="#F0EBE4"
-    android:padding="3dp">
+    android:padding="8dp">
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="170dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/shop_item"
         android:src="@drawable/frame_288985" />
 
     <ImageView
         android:id="@+id/cat"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="13dp"
         android:contentDescription="@string/mascot"
         android:src="@drawable/mascott" />
 
@@ -26,18 +26,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="173dp"
         android:fontFamily="@font/source_serif_pro_semibold"
         android:text="@string/choose"
-        android:textSize="22sp"
-        android:visibility="gone"/>
+        android:textSize="24sp"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/price"
-        android:layout_width="140dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="168dp"
         android:orientation="horizontal">
 
         <TextView
@@ -46,11 +46,11 @@
             android:layout_marginStart="40dp"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:text="@string/price"
-            android:textSize="28sp" />
+            android:textSize="32sp" />
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
             android:contentDescription="@string/coin"
@@ -59,13 +59,13 @@
 
     <ImageView
         android:id="@+id/tick"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="133dp"
+        android:layout_marginTop="176dp"
         android:contentDescription="@string/tick"
         android:src="@drawable/done_icon"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 
 </FrameLayout>

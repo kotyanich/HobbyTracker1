@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="380dp"
+    android:layout_width="320dp"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="5dp">
 
     <CheckBox
         android:id="@+id/taskCheckBox"
-        android:layout_width="270dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:buttonTint="#E8D3C9"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/source_serif_pro"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <ImageView
         android:layout_width="match_parent"
