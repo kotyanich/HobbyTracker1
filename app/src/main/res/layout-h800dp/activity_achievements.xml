@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/mascott"
         android:layout_below="@+id/line"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
