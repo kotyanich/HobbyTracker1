@@ -101,20 +101,15 @@ public class AchievementsManager {
     }
 
     private int countTotalHobbies(){
-        Log.d("AchievementsManager", "countTotalHobbies called");
         SharedPreferences prefs = context.getSharedPreferences("HobbiesData", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = prefs.getString("HobbyList", "");
-        Log.d("AchievementsManager", "Hobbies JSON: " + json);
         if (json.isEmpty()){
-            Log.d("AchievementsManager", "No hobbies found");
             return 0;
         }
         Type type = new TypeToken<ArrayList<Hobby>>() {}.getType();
         ArrayList<Hobby> hobbies = gson.fromJson(json, type);
-        int count = hobbies != null ? hobbies.size() : 0;
-        Log.d("AchievementsManager", "Hobbies count: " + count);
-        return count;
+        return hobbies != null ? hobbies.size() : 0;
     }
 
     private int countTotalGoals(){

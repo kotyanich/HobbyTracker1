@@ -2,7 +2,6 @@ package com.example.hobbytracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -52,7 +49,7 @@ public class LogrosAdapter extends RecyclerView.Adapter<LogrosAdapter.LogrosView
         if (achievement.getCurrLevel() < 1){
             descr = achievement.getBronzeDesc();
             threshold = achievement.getBronzeThreshold();
-            holder.medal.setImageResource(R.drawable.nothing);
+            holder.medal.setImageResource(R.drawable.no_medal);
         }
         else if (achievement.getCurrLevel() == 1){
             descr = achievement.getSilverDesc();

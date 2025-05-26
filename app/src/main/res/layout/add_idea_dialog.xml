@@ -9,8 +9,6 @@
         android:id="@+id/imageView17"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
         app:srcCompat="@drawable/add_link_overlay"
         android:contentDescription="@string/list"/>
 
@@ -41,7 +39,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
             <EditText
                 android:id="@+id/link"
                 android:layout_width="315dp"

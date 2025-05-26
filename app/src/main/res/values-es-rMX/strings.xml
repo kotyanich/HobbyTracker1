@@ -28,7 +28,7 @@
     <string name="picker">:</string>
     <string name="achievements">Logros</string>
     <string name="project">Proyecto</string>
-    <string name="delete_proj">Quieres eliminar el proyecto?</string>
+    <string name="delete_proj">Eliminar el proyecto?</string>
     <string name="ideas">Inspiracion</string>
     <string name="add_idea">Agregar URL</string>
     <string name="input_idea">Escribe URL</string>
@@ -47,6 +47,10 @@
     <string name="choose">Elegir</string>
     <string name="shop_title">Tienda</string>
     <string name="money">Has ganado\n%1$d monedas!</string>
+    <string name="delete_proj_descr">Todo el contenido será eliminado sin posibilidad de recuperacion.</string>
+    <string name="activity_descr">Agrega la cantidad de tiempo que has gastado hoy en tu hobby!</string>
+    <string name="planning_descr">Agrega los objetivos y crea los proyectos para los objetivos globales!</string>
+    <string name="url_descr">Guarda tus urls!</string>
     <string-array name="quotes">
         <item>Crea hasta si da miedo!</item>
         <item>Tu hobby es tu superpoder!</item>

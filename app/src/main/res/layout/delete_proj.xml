@@ -7,75 +7,89 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/list"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/mix" />
+        android:src="@drawable/add_task_overlay" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:text="@string/delete_proj"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="32sp" />
 
-        <LinearLayout
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/line"
+            android:src="@drawable/line_4_2" />
 
-            <FrameLayout
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:lineSpacingMultiplier="0.9"
+            android:text="@string/delete_proj_descr"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="210dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/cancelProjDel"
+                android:layout_width="132dp"
+                android:layout_height="47dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/cancel_button"
+                android:src="@drawable/cancel_add_time" />
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="@string/cancel"
+                android:textSize="22sp" />
+        </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/cancelProjDel"
-                    android:layout_width="132dp"
-                    android:layout_height="47dp"
-                    android:layout_marginEnd="8dp"
-                    android:contentDescription="@string/cancel_button"
-                    android:src="@drawable/cancel_add_time" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginEnd="5dp"
-                    android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="@string/cancel"
-                    android:textSize="22sp" />
-            </FrameLayout>
+            <ImageView
+                android:id="@+id/okProjDel"
+                android:layout_width="134dp"
+                android:layout_height="47dp"
+                android:contentDescription="@string/ok_button"
+                android:src="@drawable/ok_add_time" />
 
-            <FrameLayout
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/okProjDel"
-                    android:layout_width="134dp"
-                    android:layout_height="47dp"
-                    android:contentDescription="@string/ok_button"
-                    android:src="@drawable/ok_add_time" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:fontFamily="@font/source_serif_pro_semibold"
-                    android:text="@string/ok"
-                    android:textSize="22sp" />
-            </FrameLayout>
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="@string/ok"
+                android:textSize="22sp" />
+        </FrameLayout>
     </LinearLayout>
 
 

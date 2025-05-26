@@ -5,6 +5,8 @@ import static android.content.Context.MODE_PRIVATE;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,6 +74,9 @@ public class ProjAdapter extends RecyclerView.Adapter<ProjAdapter.ProjViewHolder
         ImageView cancel = dialogView.findViewById(R.id.cancelGoal);
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
         ok.setOnClickListener(v -> {
             String projectText = projectInput.getText().toString().trim();
             if(!projectText.isEmpty()){

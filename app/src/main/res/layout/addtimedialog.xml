@@ -10,9 +10,7 @@
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/group_288909"
+        app:srcCompat="@drawable/add_time_overlay_1_"
         android:contentDescription="@string/list"/>
 
     <LinearLayout
@@ -20,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="36dp">
 
             <TextView
                 android:id="@+id/textView3"
@@ -35,7 +33,7 @@
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/line_4"
+                app:srcCompat="@drawable/line_4"
                 android:contentDescription="@string/line"
                 android:layout_gravity="center_horizontal"/>
 
@@ -44,7 +42,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="14dp">
+            android:layout_marginTop="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="15dp">
 
             <FrameLayout
                 android:layout_width="wrap_content"

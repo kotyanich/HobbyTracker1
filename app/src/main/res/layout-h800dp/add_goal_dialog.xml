@@ -9,8 +9,6 @@
         android:id="@+id/imageView17"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
         app:srcCompat="@drawable/add_task_overlay"
         android:contentDescription="@string/list"/>
 

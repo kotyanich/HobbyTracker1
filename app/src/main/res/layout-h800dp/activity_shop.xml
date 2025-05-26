@@ -63,22 +63,23 @@
             android:src="@drawable/cat_shop_1_"
             android:contentDescription="@string/mascot"
             android:layout_marginStart="20dp"/>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bubble_1_"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="15dp"
             android:contentDescription="@string/bubble"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="15dp"/>
+            android:src="@drawable/bubble111" />
         <TextView
             android:id="@+id/balanceText"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:textSize="20sp"
             android:text="@string/money"
             android:layout_marginTop="35dp"
-            android:layout_marginStart="185dp"/>
+            android:layout_marginStart="205dp"/>
 
         <ImageView
             android:layout_width="wrap_content"

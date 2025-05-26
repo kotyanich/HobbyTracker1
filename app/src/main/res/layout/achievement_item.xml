@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/medal"
-                android:src="@drawable/nothing" />
+                android:src="@drawable/no_medal" />
 
             <ProgressBar
                 android:id="@+id/progressBar"

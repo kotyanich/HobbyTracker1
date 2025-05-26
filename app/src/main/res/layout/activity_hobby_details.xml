@@ -552,7 +552,7 @@
         <ImageView
             android:id="@+id/bottomPanel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             app:srcCompat="@drawable/bottom_panel"
             android:contentDescription="@string/panel"/>
 
