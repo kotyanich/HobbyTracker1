@@ -524,7 +524,7 @@
                     android:id="@+id/ideasList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/frame_288950"
+                    app:srcCompat="@drawable/projects_visible_screen"
                     android:contentDescription="@string/list"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/ideasItems"
