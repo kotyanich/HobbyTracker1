@@ -41,7 +41,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements RecycleViewInterface, NotificationsInterface {
 
     ArrayList<Hobby> hobby = new ArrayList<>();
-    ImageButton add;
+    ImageView add;
     HobbyAdapter adapter;
     SharedPreferences sharedPreferences;
     String[] quotes;

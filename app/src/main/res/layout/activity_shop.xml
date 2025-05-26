@@ -70,17 +70,17 @@
         <ImageView
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/bubble_1_"
+            android:src="@drawable/bubble111"
             android:contentDescription="@string/bubble"
-            android:layout_marginStart="150dp"
+            android:layout_marginStart="160dp"
             android:layout_marginTop="15dp"/>
 
         <TextView
             android:id="@+id/balanceText"
-            android:layout_width="wrap_content"
-            android:layout_height="55dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/source_serif_pro_semibold"
             android:text="@string/money"
             android:textSize="16sp" />
