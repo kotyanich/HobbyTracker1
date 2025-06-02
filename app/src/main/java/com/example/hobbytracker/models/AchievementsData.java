@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.models;
 
 
 public class AchievementsData {

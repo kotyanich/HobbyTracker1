@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.adapters.AchievementsAdapter;
+import com.example.hobbytracker.managers.AchievementsManager;
+import com.example.hobbytracker.R;
 import com.example.hobbytracker.data.db.AppDatabase;
 
-public class achievements extends AppCompatActivity {
+public class AchievementsActivity extends AppCompatActivity {
     RecyclerView achievementsRecyclerView;
     AchievementsAdapter adapter;
     AchievementsManager achievementsManager;

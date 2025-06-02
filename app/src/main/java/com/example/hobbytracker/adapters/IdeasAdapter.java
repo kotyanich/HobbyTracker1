@@ -1,8 +1,7 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,22 +13,23 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.listeners.OnIdeaDeleteListener;
+import com.example.hobbytracker.R;
 import com.example.hobbytracker.data.model.Idea;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHolder> {
     Context context;
     List<Idea> ideas;
 
-    public IdeasAdapter(Context context, List<Idea> ideas, IdeaDeleteInterface listener) {
+    public IdeasAdapter(Context context, List<Idea> ideas, OnIdeaDeleteListener listener) {
         this.context = context;
         this.ideas = ideas;
         this.listener = listener;
     }
 
-    IdeaDeleteInterface listener;
+    OnIdeaDeleteListener listener;
 
     @NonNull
     @Override
@@ -57,7 +57,7 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
         TextView idea;
         TextView description;
 
-        public IdeasViewHolder(@NonNull View itemView, IdeaDeleteInterface listener) {
+        public IdeasViewHolder(@NonNull View itemView, OnIdeaDeleteListener listener) {
             super(itemView);
             delete = itemView.findViewById(R.id.deleteIdea);
             idea = itemView.findViewById(R.id.ideaName);

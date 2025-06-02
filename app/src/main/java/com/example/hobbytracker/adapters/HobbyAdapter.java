@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.listeners.OnNotificationsListener;
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.listeners.OnRecyclerViewActionListener;
 import com.example.hobbytracker.data.model.DetailedHobby;
 import com.example.hobbytracker.data.model.NotificationSettings;
 import com.example.hobbytracker.data.model.Task;
+import com.example.hobbytracker.ui.HobbyDetailsActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -22,10 +26,10 @@ import java.util.List;
 public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder> {
     Context context;
     ArrayList<DetailedHobby> hobbiesList;
-    private final RecycleViewInterface listener;
-    private final NotificationsInterface notifListener;
+    private final OnRecyclerViewActionListener listener;
+    private final OnNotificationsListener notifListener;
 
-    public HobbyAdapter(Context context, ArrayList<DetailedHobby> hobbiesList, RecycleViewInterface listener, NotificationsInterface notifListener) {
+    public HobbyAdapter(Context context, ArrayList<DetailedHobby> hobbiesList, OnRecyclerViewActionListener listener, OnNotificationsListener notifListener) {
         this.context = context;
         this.hobbiesList = hobbiesList;
         this.listener = listener;
@@ -77,7 +81,7 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
         TextView textView;
         ImageView notifications;
 
-        public MyViewHolder(@NonNull View itemView, RecycleViewInterface listener, NotificationsInterface notifListener) {
+        public MyViewHolder(@NonNull View itemView, OnRecyclerViewActionListener listener, OnNotificationsListener notificationsListener) {
             super(itemView);
             imageView = itemView.findViewById(R.id.logo);
             textView = itemView.findViewById(R.id.hobbyname);
@@ -110,9 +114,10 @@ public class HobbyAdapter extends RecyclerView.Adapter<HobbyAdapter.MyViewHolder
             notifications.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (notifListener != null) {
+                    if (notificationsListener != null) {
                         int pos = getAdapterPosition();
-                        if (pos != RecyclerView.NO_POSITION) notifListener.onNotifClick(pos);
+                        if (pos != RecyclerView.NO_POSITION)
+                            notificationsListener.onNotificationClick(pos);
                     }
                 }
             });

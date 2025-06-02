@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.listeners.OnTaskChangedListener;
+import com.example.hobbytracker.R;
 import com.example.hobbytracker.data.model.ProjectWithTasks;
 
 import java.util.List;

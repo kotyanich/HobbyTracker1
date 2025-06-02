@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.ui;
 
 import static com.example.hobbytracker.notifications.NotificationUtils.selectedDaysToString;
 import static com.example.hobbytracker.notifications.NotificationUtils.stringDaysToArray;
@@ -27,6 +27,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.managers.AchievementsManager;
+import com.example.hobbytracker.adapters.HobbyAdapter;
+import com.example.hobbytracker.listeners.OnNotificationsListener;
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.listeners.OnRecyclerViewActionListener;
 import com.example.hobbytracker.data.db.AppDatabase;
 import com.example.hobbytracker.data.model.DetailedHobby;
 import com.example.hobbytracker.data.model.Hobby;
@@ -39,7 +44,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class MainActivity extends AppCompatActivity implements RecycleViewInterface, NotificationsInterface {
+public class MainActivity extends AppCompatActivity implements OnRecyclerViewActionListener, OnNotificationsListener {
 
     ArrayList<DetailedHobby> hobbiesList;
     AppDatabase db;
@@ -136,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
     }
 
     private void goToAchievements() {
-        Intent intent = new Intent(this, achievements.class);
+        Intent intent = new Intent(this, AchievementsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
     }
 
     public void GoToAddHobby(View v) {
-        Intent intent = new Intent(this, add_hobby.class);
+        Intent intent = new Intent(this, AddHobbyActivity.class);
         startActivityForResult(intent, 1);
     }
 
@@ -378,7 +383,7 @@ public class MainActivity extends AppCompatActivity implements RecycleViewInterf
     }
 
     @Override
-    public void onNotifClick(int position) {
+    public void onNotificationClick(int position) {
         showAddNotificationDialog(position);
     }
 }

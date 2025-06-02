@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.listeners.OnTaskDeleteListener;
 import com.example.hobbytracker.data.db.AppDatabase;
 import com.example.hobbytracker.data.model.Task;
 
@@ -21,10 +23,10 @@ import java.util.List;
 public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHolder> {
     Context context;
     List<Task> tasks;
-    private final TasksDeleteInterface listener;
+    private final OnTaskDeleteListener listener;
     private final AppDatabase db;
 
-    public TasksAdapter(Context context, List<Task> tasks, TasksDeleteInterface listener, AppDatabase db) {
+    public TasksAdapter(Context context, List<Task> tasks, OnTaskDeleteListener listener, AppDatabase db) {
         this.context = context;
         this.tasks = tasks;
         this.listener = listener;
@@ -71,7 +73,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         CheckBox taskCheckBox;
         ImageView delete;
 
-        public TaskViewHolder(@NonNull View itemView, TasksDeleteInterface listener) {
+        public TaskViewHolder(@NonNull View itemView, OnTaskDeleteListener listener) {
             super(itemView);
             taskCheckBox = itemView.findViewById(R.id.taskCheckBox);
             delete = itemView.findViewById(R.id.deleteTask);

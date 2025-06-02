@@ -1,8 +1,10 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.managers;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.hobbytracker.models.AchievementsData;
+import com.example.hobbytracker.R;
 import com.example.hobbytracker.data.db.AppDatabase;
 import com.example.hobbytracker.data.model.Hobby;
 import com.example.hobbytracker.data.model.Project;

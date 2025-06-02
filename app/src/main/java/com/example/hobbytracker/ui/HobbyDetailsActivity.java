@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.ui;
 
 
 import android.annotation.SuppressLint;
@@ -26,6 +26,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.hobbytracker.listeners.OnIdeaDeleteListener;
+import com.example.hobbytracker.adapters.IdeasAdapter;
+import com.example.hobbytracker.listeners.OnTaskChangedListener;
+import com.example.hobbytracker.adapters.ProjectsAdapter;
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.adapters.TasksAdapter;
+import com.example.hobbytracker.listeners.OnTaskDeleteListener;
+import com.example.hobbytracker.models.TimeUtils;
 import com.example.hobbytracker.data.db.AppDatabase;
 import com.example.hobbytracker.data.model.DetailedHobby;
 import com.example.hobbytracker.data.model.Idea;
@@ -41,8 +49,8 @@ import java.util.List;
 
 public class HobbyDetailsActivity extends AppCompatActivity
         implements OnTaskChangedListener,
-        TasksDeleteInterface,
-        IdeaDeleteInterface {
+        OnTaskDeleteListener,
+        OnIdeaDeleteListener {
 
     private RecyclerView tasksRecyclerView;
     RecyclerView ideasRecyclerView;
@@ -57,7 +65,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
     private String projectName;
     private DetailedHobby currentHobby;
     private List<Task> hobbyTasks = new ArrayList<>();
-    private List<Idea> ideas = new ArrayList<>();
+    private final List<Idea> ideas = new ArrayList<>();
     private List<ProjectWithTasks> projects = new ArrayList<>();
     private ProjectWithTasks currentProject;
     private int currentProjectIndex = 0;
@@ -163,7 +171,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
         });
 
         profileView.setOnClickListener(v -> {
-            Intent intent = new Intent(this, achievements.class);
+            Intent intent = new Intent(this, AchievementsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });

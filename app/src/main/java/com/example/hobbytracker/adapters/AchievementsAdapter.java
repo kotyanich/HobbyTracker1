@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hobbytracker.models.AchievementsData;
+import com.example.hobbytracker.managers.AchievementsManager;
+import com.example.hobbytracker.R;
 
 import java.util.ArrayList;
 

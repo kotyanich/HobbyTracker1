@@ -1,6 +1,4 @@
-package com.example.hobbytracker;
-
-import android.widget.ImageView;
+package com.example.hobbytracker.models;
 
 public class ShopItem {
 

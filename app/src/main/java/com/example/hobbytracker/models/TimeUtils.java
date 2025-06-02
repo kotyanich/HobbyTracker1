@@ -1,14 +1,10 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.models;
 
 import com.example.hobbytracker.data.model.TimeEntry;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 
 public class TimeUtils {

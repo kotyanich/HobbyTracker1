@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,14 +18,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.models.ShopItem;
+
 import java.util.ArrayList;
 
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder> {
     ArrayList<ShopItem> shopItems;
-    int  balance;
+    int balance;
     Context context;
     Activity activity;
     TextView balanceText;
+
     public ShopAdapter(ArrayList<ShopItem> shopItems, Context context, Activity activity, TextView balanceText) {
         this.shopItems = shopItems;
         this.context = context;
@@ -47,33 +50,32 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
     public void onBindViewHolder(@NonNull ShopAdapter.ShopViewHolder holder, int position) {
         ShopItem shopItem = shopItems.get(position);
         holder.mascot.setImageResource(shopItem.getImage());
-        if (!shopItem.isBought && !shopItem.isSelected){
+        if (!shopItem.isBought() && !shopItem.isSelected()) {
             holder.price.setVisibility(View.VISIBLE);
             holder.check.setVisibility(View.GONE);
             holder.choose.setVisibility(View.GONE);
         }
-        if (shopItem.isBought && !shopItem.isSelected){
+        if (shopItem.isBought() && !shopItem.isSelected()) {
             holder.price.setVisibility(View.GONE);
             holder.check.setVisibility(View.GONE);
             holder.choose.setVisibility(View.VISIBLE);
         }
-        if (shopItem.isBought && shopItem.isSelected){
+        if (shopItem.isBought() && shopItem.isSelected()) {
             holder.choose.setVisibility(View.GONE);
             holder.check.setVisibility(View.VISIBLE);
             holder.price.setVisibility(View.GONE);
         }
-        holder.price.setOnClickListener(v ->{
-            if (balance >= 50){
+        holder.price.setOnClickListener(v -> {
+            if (balance >= 50) {
                 balance -= 50;
                 shopItem.setBought(true);
                 saveBalance();
                 holder.price.setVisibility(View.GONE);
                 holder.choose.setVisibility(View.VISIBLE);
                 balanceText.setText(context.getString(R.string.money, balance));
-            }
-            else Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(context, "Недостаточно средств!", Toast.LENGTH_SHORT).show();
         });
-        holder.choose.setOnClickListener(v ->{
+        holder.choose.setOnClickListener(v -> {
             for (ShopItem item : shopItems)
                 item.setSelected(false);
             holder.choose.setVisibility(View.GONE);
@@ -96,7 +98,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         return shopItems.size();
     }
 
-    static class ShopViewHolder extends RecyclerView.ViewHolder{
+    static class ShopViewHolder extends RecyclerView.ViewHolder {
         ImageView mascot;
         LinearLayout price;
         TextView choose;
@@ -110,6 +112,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
             check = itemView.findViewById(R.id.tick);
         }
     }
+
     private void saveBalance() {
         SharedPreferences prefs = context.getSharedPreferences("AchData", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -120,6 +123,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ShopViewHolder
         }
         editor.apply();
     }
+
     private void updateBalance() {
         SharedPreferences prefs = context.getSharedPreferences("AchData", MODE_PRIVATE);
         balance = prefs.getInt("Balance", 0);

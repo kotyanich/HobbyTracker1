@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#EEE9E2"
     android:orientation="vertical"
-    tools:context=".add_hobby">
+    tools:context=".ui.AddHobbyActivity">
 
 
     <LinearLayout

@@ -1,13 +1,10 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,7 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class add_hobby extends AppCompatActivity {
+import com.example.hobbytracker.R;
+
+public class AddHobbyActivity extends AppCompatActivity {
 
     EditText ourHobby;
     ImageView submit;
@@ -77,7 +76,7 @@ public class add_hobby extends AppCompatActivity {
         ico8.setOnClickListener(v -> selectImage(cook, ico8Red, R.drawable.cooking_red));
         ico9.setOnClickListener(v -> selectImage(music, ico9Red, R.drawable.music_red));
         achievements.setOnClickListener(v -> {
-            Intent intent = new Intent(this, achievements.class);
+            Intent intent = new Intent(this, AchievementsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });

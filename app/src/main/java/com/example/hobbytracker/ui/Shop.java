@@ -1,9 +1,8 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +13,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hobbytracker.R;
+import com.example.hobbytracker.adapters.ShopAdapter;
+import com.example.hobbytracker.models.ShopItem;
 
 import java.util.ArrayList;
 
@@ -60,7 +63,7 @@ public class Shop extends AppCompatActivity {
         });
         ImageView achievements = findViewById(R.id.achievements);
         achievements.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.example.hobbytracker.achievements.class);
+            Intent intent = new Intent(this, AchievementsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });

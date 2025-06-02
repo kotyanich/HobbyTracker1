@@ -1,4 +1,4 @@
-package com.example.hobbytracker;
+package com.example.hobbytracker.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.R;
 import com.example.hobbytracker.data.model.Task;
-import com.example.hobbytracker.OnTaskChangedListener;
+import com.example.hobbytracker.listeners.OnTaskChangedListener;
 
 import java.util.List;
 
