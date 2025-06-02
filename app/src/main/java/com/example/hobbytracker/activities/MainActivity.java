@@ -1,4 +1,4 @@
-package com.example.hobbytracker.ui;
+package com.example.hobbytracker.activities;
 
 import static com.example.hobbytracker.notifications.NotificationUtils.selectedDaysToString;
 import static com.example.hobbytracker.notifications.NotificationUtils.stringDaysToArray;

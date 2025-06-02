@@ -18,19 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HobbyTracker">
         <activity
-            android:name=".ui.Shop"
+            android:name=".activities.Shop"
             android:exported="false" />
         <activity
-            android:name=".ui.AchievementsActivity"
+            android:name=".activities.AchievementsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.HobbyDetailsActivity"
+            android:name=".activities.HobbyDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.AddHobbyActivity"
+            android:name=".activities.AddHobbyActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

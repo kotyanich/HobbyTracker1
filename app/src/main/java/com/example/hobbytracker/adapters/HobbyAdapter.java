@@ -17,7 +17,7 @@ import com.example.hobbytracker.listeners.OnRecyclerViewActionListener;
 import com.example.hobbytracker.data.model.DetailedHobby;
 import com.example.hobbytracker.data.model.NotificationSettings;
 import com.example.hobbytracker.data.model.Task;
-import com.example.hobbytracker.ui.HobbyDetailsActivity;
+import com.example.hobbytracker.activities.HobbyDetailsActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

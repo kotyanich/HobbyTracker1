@@ -1,4 +1,4 @@
-package com.example.hobbytracker.ui;
+package com.example.hobbytracker.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
