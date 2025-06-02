@@ -133,4 +133,5 @@
     </string-array>
     <string name="achievements">Достижения</string>
     <string name="no_hobby_tasks_message">Нет задач для хобби</string>
+    <string name="no_ideas_message">Сохранённых ссылок пока нет</string>
 </resources>

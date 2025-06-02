@@ -65,7 +65,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
     private String projectName;
     private DetailedHobby currentHobby;
     private List<Task> hobbyTasks = new ArrayList<>();
-    private final List<Idea> ideas = new ArrayList<>();
+    private List<Idea> ideas = new ArrayList<>();
     private List<ProjectWithTasks> projects = new ArrayList<>();
     private ProjectWithTasks currentProject;
     private int currentProjectIndex = 0;
@@ -126,6 +126,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
 
         projects = currentHobby.projects;
         hobbyTasks = currentHobby.hobbyTasks;
+        ideas = currentHobby.ideas;
 
         // SET HOBBY INFO IN UI
         hobbyView.setText(currentHobby.base.name);
@@ -325,6 +326,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
                 newIdea.id = db.ideaDao().insert(newIdea);
 
                 refreshCurrentHobbyData();
+                updateEmptyMessages(false);
 
             } else {
                 Toast.makeText(
@@ -394,6 +396,7 @@ public class HobbyDetailsActivity extends AppCompatActivity
     private void updateEmptyMessages(boolean isTask) {
         TextView emptyProjectMessage = findViewById(R.id.emptyProjectMessage);
         TextView emptyHobbyTasksMessage = findViewById(R.id.emptyHobbyTasksMessage);
+        TextView emptyIdeasMessage = findViewById(R.id.emptyIdeasMessage);
 
         if (isTask) {
             // Show hobby tasks message if hobbyTasks is empty, hide project message
@@ -404,6 +407,9 @@ public class HobbyDetailsActivity extends AppCompatActivity
             emptyProjectMessage.setVisibility(projects.isEmpty() ? View.VISIBLE : View.GONE);
             emptyHobbyTasksMessage.setVisibility(View.GONE);
         }
+
+        // Show ideas message if ideas is empty
+        emptyIdeasMessage.setVisibility(ideas.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -539,7 +545,11 @@ public class HobbyDetailsActivity extends AppCompatActivity
     @SuppressLint("NotifyDataSetChanged")
     private void deleteProject() {
         if (currentProject == null) {
-            Toast.makeText(this, "Нет выбранного проекта для удаления", Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                    this,
+                    "Нет выбранного проекта для удаления",
+                    Toast.LENGTH_SHORT
+            ).show();
             return;
         }
         // ARCHIVE ALL TASKS IN THE PROJECT
@@ -590,5 +600,6 @@ public class HobbyDetailsActivity extends AppCompatActivity
         db.ideaDao().update(idea);
 
         refreshCurrentHobbyData();
+        updateEmptyMessages(false);
     }
 }

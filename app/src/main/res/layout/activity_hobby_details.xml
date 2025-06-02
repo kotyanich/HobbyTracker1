@@ -564,11 +564,23 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/ideasItems"
-                    android:layout_width="290dp"
+                    android:layout_width="304dp"
                     android:layout_height="230dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="35dp"
                     android:contentDescription="@string/recycler" />
+
+                <TextView
+                    android:id="@+id/emptyIdeasMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_ideas_message"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
             </FrameLayout>
 
             <FrameLayout
