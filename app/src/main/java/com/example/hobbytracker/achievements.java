@@ -12,11 +12,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.hobbytracker.data.db.AppDatabase;
 
 public class achievements extends AppCompatActivity {
-    RecyclerView logrosRecyclerView;
-    LogrosAdapter adapter;
+    RecyclerView achievementsRecyclerView;
+    AchievementsAdapter adapter;
     AchievementsManager achievementsManager;
 
     @Override
@@ -29,16 +29,20 @@ public class achievements extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        logrosRecyclerView = findViewById(R.id.logrosRecycler);
-        logrosRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        achievementsManager = new AchievementsManager(this);
+
+        AppDatabase db = AppDatabase.getInstance(this);
+
+        achievementsRecyclerView = findViewById(R.id.achievementsRecycler);
+        achievementsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        achievementsManager = new AchievementsManager(this, db);
         achievementsManager.loadAchievements();
         achievementsManager.updateStatistics();
-        adapter = new LogrosAdapter(this,achievementsManager);
-        logrosRecyclerView.setAdapter(adapter);
+        adapter = new AchievementsAdapter(this, achievementsManager);
+        achievementsRecyclerView.setAdapter(adapter);
+
         ImageView home = findViewById(R.id.home);
         ImageView shop = findViewById(R.id.shop);
-        shop.setOnClickListener(v ->{
+        shop.setOnClickListener(v -> {
             Intent intent = new Intent(this, Shop.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);

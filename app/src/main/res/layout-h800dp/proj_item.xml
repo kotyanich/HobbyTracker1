@@ -4,22 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/projectsList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/projects_visible_screen"
-        android:contentDescription="@string/recycler"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/projectRecyclerView"
+        android:id="@+id/projectTasksRecyclerView"
         android:layout_width="377dp"
         android:layout_height="187dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:contentDescription="@string/recycler"
         android:nestedScrollingEnabled="true" />
+
     <TextView
         android:id="@+id/projectName"
         android:layout_width="260dp"
@@ -29,21 +22,22 @@
         android:fontFamily="@font/source_serif_pro_semibold"
         android:textSize="24sp"
         android:text="@string/proj_name"
-        android:textAlignment="center"/>
+        android:textAlignment="center" />
+
     <ImageView
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:src="@drawable/line_4"
         android:layout_marginTop="70dp"
-        android:contentDescription="@string/line"/>
+        android:contentDescription="@string/line" />
 
     <ImageView
-        android:id="@+id/addGoal"
+        android:id="@+id/addProjectTask"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="end"
         app:srcCompat="@drawable/frame_288961"
-        android:contentDescription="@string/add_proj_task"/>
+        android:contentDescription="@string/add_proj_task" />
 
 </FrameLayout>

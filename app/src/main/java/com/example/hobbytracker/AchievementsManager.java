@@ -2,15 +2,19 @@ package com.example.hobbytracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
+import com.example.hobbytracker.data.db.AppDatabase;
+import com.example.hobbytracker.data.model.Hobby;
+import com.example.hobbytracker.data.model.Project;
+import com.example.hobbytracker.data.model.ProjectWithTasks;
+import com.example.hobbytracker.data.model.Task;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 public class AchievementsManager {
     private static final int bronzeLevel = 1;
@@ -26,42 +30,29 @@ public class AchievementsManager {
     private static final int[][] thresholds = {
             {10, 30, 50},
             {3, 5, 7},
-            {50,100,150},
-            {30,70,120},
-            {10,25,50},
-            {5,15,30},
+            {50, 100, 150},
+            {30, 70, 120},
+            {10, 25, 50},
+            {5, 15, 30},
     };
 
     private final Context context;
+    private final AppDatabase db;
     private ArrayList<AchievementsData> achievements;
 
-    public AchievementsManager(Context context) {
+    public AchievementsManager(Context context, AppDatabase db) {
         this.context = context;
+        this.db = db;
+        initializeAchievements();
     }
 
-    public void saveAchievements(){
-        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(achievements);
-        editor.putString("achievements", json);
-        editor.apply();
-    }
-    public void loadAchievements(){
-        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = prefs.getString("achievements", null);
-        Type type = new TypeToken<ArrayList<AchievementsData>>() {}.getType();
-        if (json != null) achievements = gson.fromJson(json, type);
-        else initializeAchievements();
-    }
-    private void initializeAchievements(){
+    private void initializeAchievements() {
         achievements = new ArrayList<>();
-        String[] titles = context.getResources().getStringArray(R.array.logrosTitle);
-        String[] bronzeDesc = context.getResources().getStringArray(R.array.logrosBronze);
-        String[] silverDesc = context.getResources().getStringArray(R.array.logrosSilver);
-        String[] goldDesc = context.getResources().getStringArray(R.array.logrosGold);
-        for (int i = 0; i < titles.length; i++){
+        String[] titles = context.getResources().getStringArray(R.array.achievementsTitle);
+        String[] bronzeDesc = context.getResources().getStringArray(R.array.achievementsBronze);
+        String[] silverDesc = context.getResources().getStringArray(R.array.achievementsSilver);
+        String[] goldDesc = context.getResources().getStringArray(R.array.achievementsGold);
+        for (int i = 0; i < titles.length; i++) {
             AchievementsData achievement = new AchievementsData(
                     titles[i],
                     bronzeDesc[i],
@@ -77,13 +68,14 @@ public class AchievementsManager {
         }
     }
 
-    public void updateStatistics(){
+    public void updateStatistics() {
         int totalHobbies = countTotalHobbies();
-        int totalGoals = countTotalGoals();
-        int completedGoals = countCompletedGoals();
+        int totalGoals = countTotalTasks();
+        int completedGoals = countCompletedTasks();
         int totalProj = countTotalProjects();
         int completedProj = countCompletedProjects();
         int totalTime = calculateTotalTime();
+
         updateAchievement(totalTime, achievements.get(timeMaster));
         updateAchievement(totalHobbies, achievements.get(hobbyManiac));
         updateAchievement(totalGoals, achievements.get(goalsCollector));
@@ -92,131 +84,102 @@ public class AchievementsManager {
         updateAchievement(completedProj, achievements.get(masterOfProjects));
     }
 
-    public ArrayList<AchievementsData> getAchievements() {return achievements;}
-
-    public void updateAchievement(int total, AchievementsData logro){
-        logro.setCurrProgress(total);
-        checkAchievementLevel(logro);
-        saveAchievements();
+    public ArrayList<AchievementsData> getAchievements() {
+        return achievements;
     }
 
-    private int countTotalHobbies(){
-        SharedPreferences prefs = context.getSharedPreferences("HobbiesData", Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = prefs.getString("HobbyList", "");
-        if (json.isEmpty()){
-            return 0;
-        }
-        Type type = new TypeToken<ArrayList<Hobby>>() {}.getType();
-        ArrayList<Hobby> hobbies = gson.fromJson(json, type);
+    public void updateAchievement(int total, AchievementsData achievement) {
+        achievement.setCurrProgress(total);
+        checkAchievementLevel(achievement);
+    }
+
+    private int countTotalHobbies() {
+        List<Hobby> hobbies = db.hobbyDao().getAll();
         return hobbies != null ? hobbies.size() : 0;
     }
 
-    private int countTotalGoals(){
-        int totalGoals = 0;
-        SharedPreferences prefs = context.getSharedPreferences("HobbyTasks", Context.MODE_PRIVATE);
-        Map<String, ?> allEntries = prefs.getAll();
-        for (Map.Entry<String, ?> entry: allEntries.entrySet()){
-            {
-                String json = (String) entry.getValue();
-                Type type = new TypeToken<ArrayList<Task>>() {}.getType();
-                ArrayList<Task> goals = new Gson().fromJson(json, type);
-                if (goals != null) totalGoals += goals.size();
-            }
-        }
-        return totalGoals;
+    private int countTotalTasks() {
+        List<Task> allTasks = db.taskDao().getAll();
+        return allTasks != null ? allTasks.size() : 0;
     }
 
-    private int countCompletedGoals(){
-        int completedGoals = 0;
-        SharedPreferences prefs = context.getSharedPreferences("HobbyTasks", Context.MODE_PRIVATE);
-        Map<String, ?> allEntries = prefs.getAll();
-        for (Map.Entry<String, ?> entry: allEntries.entrySet()){
-            {
-                String json = (String) entry.getValue();
-                Type type = new TypeToken<ArrayList<Task>>() {}.getType();
-                ArrayList<Task> goals = new Gson().fromJson(json, type);
-                if (goals != null) {
-                    for (Task goal: goals){
-                        if (goal.isCompleted()) completedGoals++;
-                    }
+    private int countCompletedTasks() {
+        List<Task> allTasks = db.taskDao().getAll();
+        int completedTasks = 0;
+
+        if (allTasks != null) {
+            for (Task task : allTasks) {
+                if (task.isDone) {
+                    completedTasks++;
                 }
             }
         }
-        return completedGoals;
+
+        return completedTasks;
     }
 
-    private int countTotalProjects(){
-        int totalProjects = 0;
-        SharedPreferences prefs = context.getSharedPreferences("ProjectsData", Context.MODE_PRIVATE);
-        Map<String,?> allEntries = prefs.getAll();
-        for (Map.Entry<String,?> entry: allEntries.entrySet()){
-            String json = (String) entry.getValue();
-            Type type = new TypeToken<ArrayList<ProjectList>>() {}.getType();
-            ArrayList<ProjectList> projectLists = new Gson().fromJson(json,type);
-            if (projectLists != null) totalProjects += projectLists.size();
-        }
-        return totalProjects;
+    private int countTotalProjects() {
+        List<Project> projects = db.projectDao().getAll();
+        return projects != null ? projects.size() : 0;
     }
 
-    private int countCompletedProjects(){
+    private int countCompletedProjects() {
+        List<ProjectWithTasks> projects = db.projectDao().getAllWithTasks();
         int completedProjects = 0;
-        SharedPreferences prefs = context.getSharedPreferences("ProjectsData", Context.MODE_PRIVATE);
-        Map<String,?> allEntries = prefs.getAll();
-        for (Map.Entry<String,?> entry:allEntries.entrySet()){
-            String json = (String) entry.getValue();
-            Type type = new TypeToken<ArrayList<ProjectList>>() {}.getType();
-            ArrayList<ProjectList> projectLists = new Gson().fromJson(json, type);
-            if (projectLists != null){
-                for (ProjectList projectList : projectLists){
-                    SharedPreferences goalsPrefs = context.getSharedPreferences("GoalsData", Context.MODE_PRIVATE);
-                    String goalsJson = goalsPrefs.getString("goals_" + projectList.getName(), null);
-                    if (goalsJson != null){
-                        Type goalsType = new TypeToken<ArrayList<Project>>() {}.getType();
-                        ArrayList<Project> goals = new Gson().fromJson(goalsJson, goalsType);
-                        if (goals != null && !goals.isEmpty()){
-                            boolean allCompleted = true;
-                            for (Project goal: goals){
-                                if (!goal.isCompleted()){
-                                    allCompleted = false;
-                                    break;
-                                }
-                            }
-                            if (allCompleted) completedProjects++;
+
+        if (projects != null) {
+            for (ProjectWithTasks project : projects) {
+                if (project.tasks != null && !project.tasks.isEmpty()) {
+                    boolean allCompleted = true;
+
+                    for (Task task : project.tasks) {
+                        if (!task.isDone) {
+                            allCompleted = false;
+                            break;
                         }
                     }
+
+                    if (allCompleted) completedProjects++;
                 }
             }
         }
         return completedProjects;
     }
 
-    private int calculateTotalTime(){
-        int totalTime = 0;
-        SharedPreferences prefs = context.getSharedPreferences("TimeData", Context.MODE_PRIVATE);
-        Map<String,?> allEntries = prefs.getAll();
-        for (Map.Entry<String,?> entry: allEntries.entrySet()){
-            String json = (String) entry.getValue();
-            Type type = new TypeToken<Map<String, ArrayList<String>>>() {}.getType();
-            Map<String, ArrayList<String>> timeData = new Gson().fromJson(json, type);
-            if (timeData != null){
-                for (Map.Entry<String, ArrayList<String>> dateEntry : timeData.entrySet()){
-                    ArrayList<String> timeEntries = dateEntry.getValue();
-                    if (timeEntries != null){
-                        for (String timeEntry : timeEntries){
-                            totalTime += Integer.parseInt(timeEntry);
-                        }
-                    }
-                }
-            }
-        }
-        return (totalTime/60);
+    private int calculateTotalTime() {
+        Integer totalSeconds = db.timeEntryDao().getTotalTime();
+        int totalHours = (totalSeconds != null ? totalSeconds : 0) / 3600;
+        return totalHours;
     }
 
-    private void checkAchievementLevel(AchievementsData achievement){
+    private void checkAchievementLevel(AchievementsData achievement) {
         int progress = achievement.getCurrProgress();
-        if (progress >= achievement.getGoldThreshold() && achievement.getCurrLevel() < goldLevel) achievement.setCurrLevel(goldLevel);
-        else if (progress >= achievement.getSilverThreshold() && achievement.getCurrLevel() < silverLevel) achievement.setCurrLevel(silverLevel);
-        else if (progress >= achievement.getBronzeThreshold() && achievement.getCurrLevel() < bronzeLevel) achievement.setCurrLevel(bronzeLevel);
+
+        if (progress >= achievement.getGoldThreshold() && achievement.getCurrLevel() < goldLevel) {
+            achievement.setCurrLevel(goldLevel);
+        } else if (progress >= achievement.getSilverThreshold() && achievement.getCurrLevel() < silverLevel) {
+            achievement.setCurrLevel(silverLevel);
+        } else if (progress >= achievement.getBronzeThreshold() && achievement.getCurrLevel() < bronzeLevel) {
+            achievement.setCurrLevel(bronzeLevel);
+        }
+    }
+
+    public void saveAchievements() {
+        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(achievements);
+        editor.putString("achievements", json);
+        editor.apply();
+    }
+
+    public void loadAchievements() {
+        SharedPreferences prefs = context.getSharedPreferences("LogroDate", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = prefs.getString("achievements", null);
+        Type type = new TypeToken<ArrayList<AchievementsData>>() {
+        }.getType();
+        if (json != null) achievements = gson.fromJson(json, type);
+        else initializeAchievements();
     }
 }

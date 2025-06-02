@@ -66,7 +66,7 @@ public class add_hobby extends AppCompatActivity {
         cook = findViewById(R.id.cooking);
         crocheting = findViewById(R.id.crocheting);
         drawing = findViewById(R.id.drawing);
-        ImageView logros = findViewById(R.id.logrosBut);
+        ImageView achievements = findViewById(R.id.achievementsBut);
         ico1.setOnClickListener(v -> selectImage(cactus, ico1Red, R.drawable.select_icon_frame));
         ico2.setOnClickListener(v -> selectImage(crocheting, ico2Red, R.drawable.crocheting_red));
         ico3.setOnClickListener(v -> selectImage(drawing, ico3Red, R.drawable.drawing_red));
@@ -76,24 +76,24 @@ public class add_hobby extends AppCompatActivity {
         ico7.setOnClickListener(v -> selectImage(photo, ico7Red, R.drawable.photo_red));
         ico8.setOnClickListener(v -> selectImage(cook, ico8Red, R.drawable.cooking_red));
         ico9.setOnClickListener(v -> selectImage(music, ico9Red, R.drawable.music_red));
-        logros.setOnClickListener(v ->{
+        achievements.setOnClickListener(v -> {
             Intent intent = new Intent(this, achievements.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
         ImageView shop = findViewById(R.id.shop);
-        shop.setOnClickListener(v ->{
+        shop.setOnClickListener(v -> {
             Intent intent = new Intent(this, Shop.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
         submit.setOnClickListener(v -> {
             String hobby = ourHobby.getText().toString().trim();
-            if (selectedImageResId == -1){
+            if (selectedImageResId == -1) {
                 Toast.makeText(this, "Пожалуйста, выберите изображение", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!hobby.isEmpty()){
+            if (!hobby.isEmpty()) {
                 Intent intent = new Intent();
                 intent.putExtra("Hobby", hobby);
                 intent.putExtra("ImageResId", selectedImageResId);
@@ -104,8 +104,8 @@ public class add_hobby extends AppCompatActivity {
 
     }
 
-    private void selectImage(FrameLayout layout, ImageView icoRed, int imageResId){
-        if (selectedLayout != null && selectedIcoRed!=null){
+    private void selectImage(FrameLayout layout, ImageView icoRed, int imageResId) {
+        if (selectedLayout != null && selectedIcoRed != null) {
             selectedIcoRed.setVisibility(View.GONE);
         }
         icoRed.setImageResource(imageResId);
@@ -115,7 +115,7 @@ public class add_hobby extends AppCompatActivity {
         selectedImageResId = imageResId;
     }
 
-    public void goToMainScreen(View v){
+    public void goToMainScreen(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);

@@ -14,19 +14,23 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hobbytracker.data.model.Idea;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHolder> {
     Context context;
-    ArrayList<Links> links;
+    List<Idea> ideas;
 
-    public IdeasAdapter(Context context, ArrayList<Links> links, IdeaDeleteInterface listener) {
+    public IdeasAdapter(Context context, List<Idea> ideas, IdeaDeleteInterface listener) {
         this.context = context;
-        this.links = links;
+        this.ideas = ideas;
         this.listener = listener;
     }
 
     IdeaDeleteInterface listener;
+
     @NonNull
     @Override
     public IdeasAdapter.IdeasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,55 +41,66 @@ public class IdeasAdapter extends RecyclerView.Adapter<IdeasAdapter.IdeasViewHol
 
     @Override
     public void onBindViewHolder(@NonNull IdeasAdapter.IdeasViewHolder holder, int position) {
-        Links link = links.get(position);
-        holder.link.setText(link.getUrl());
-        holder.description.setText(link.getDescription());
+        Idea idea = ideas.get(position);
+        holder.idea.setText(idea.url);
+        holder.description.setText(idea.title);
     }
 
     @Override
     public int getItemCount() {
-        return links.size();
+        return ideas.size();
     }
 
-    public static class IdeasViewHolder extends RecyclerView.ViewHolder{
+    public static class IdeasViewHolder extends RecyclerView.ViewHolder {
 
         ImageView delete;
-        TextView link;
+        TextView idea;
         TextView description;
+
         public IdeasViewHolder(@NonNull View itemView, IdeaDeleteInterface listener) {
             super(itemView);
             delete = itemView.findViewById(R.id.deleteIdea);
-            link = itemView.findViewById(R.id.ideaName);
+            idea = itemView.findViewById(R.id.ideaName);
             description = itemView.findViewById(R.id.ideaDesc);
+
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (listener!=null){
+                    if (listener != null) {
                         int pos = getAdapterPosition();
-                        if (pos!= RecyclerView.NO_POSITION)
+                        if (pos != RecyclerView.NO_POSITION) {
                             listener.onClickDeleteIdea(pos);
+                        }
                     }
                 }
             });
-            link.setOnClickListener(new View.OnClickListener() {
+
+            idea.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String url = link.getText().toString();
+                    String url = idea.getText().toString();
                     openLink(url);
                 }
             });
         }
 
-        public void openLink(String url){
-            if (!url.startsWith("http://") && !url.startsWith("https://")){
-                Toast.makeText(itemView.getContext(), "Невозможно открыть ссылку, используйте протокол https://", Toast.LENGTH_SHORT).show();
+        public void openLink(String url) {
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                Toast.makeText(
+                                itemView.getContext(),
+                                "Невозможно открыть ссылку, используйте протокол https://",
+                                Toast.LENGTH_SHORT)
+                        .show();
             }
-            try{
+            try {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 itemView.getContext().startActivity(intent);
-            }
-            catch (Exception e){
-                Toast.makeText(itemView.getContext(), "Невозможно открыть ссылку", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(
+                                itemView.getContext(),
+                                "Невозможно открыть ссылку",
+                                Toast.LENGTH_SHORT)
+                        .show();
             }
         }
     }

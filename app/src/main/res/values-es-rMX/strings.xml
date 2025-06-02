@@ -21,6 +21,7 @@
     <string name="my_hobbies">Mis hobbies</string>
     <string name="input_task">Escribe el objetivo</string>
     <string name="input_project">Escribe el nombre del proyecto</string>
+    <string name="no_projects_message">Aún no tienes proyectos. Añadir el primero!</string>
     <string name="ok">OK</string>
     <string name="cancel">Atras</string>
     <string name="hours">h</string>
@@ -60,7 +61,7 @@
         <item>La practica es tu aliada!</item>
         <item>Eres genial!</item>
     </string-array>
-    <string-array name="logrosTitle">
+    <string-array name="achievementsTitle">
         <item>Maestro del tiempo</item>
         <item>Hobby-maniac</item>
         <item>Coleccionista de objetivos</item>
@@ -68,7 +69,7 @@
         <item>Coleccionista de proyectos</item>
         <item>Master of projects</item>
     </string-array>
-    <string-array name="logrosBronze">
+    <string-array name="achievementsBronze">
         <item>El tiempo gastado: </item>
         <item>Creaste hobbies: </item>
         <item>Creaste objetivos: </item>
@@ -76,7 +77,7 @@
         <item>Creaste proyectos: </item>
         <item>Proyectos completos: </item>
     </string-array>
-    <string-array name="logrosSilver">
+    <string-array name="achievementsSilver">
         <item>El tiempo gastado: </item>
         <item>Creaste hobbies: </item>
         <item>Creaste objetivos: </item>
@@ -84,7 +85,7 @@
         <item>Creaste proyectos: </item>
         <item>Proyectos completos: </item>
     </string-array>
-    <string-array name="logrosGold">
+    <string-array name="achievementsGold">
         <item>El tiempo gastado: </item>
         <item>Creaste hobbies: </item>
         <item>Creaste objetivos: </item>

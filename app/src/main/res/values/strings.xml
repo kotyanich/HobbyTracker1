@@ -37,6 +37,7 @@
     <string name="right_arrow" translatable="false">right_arrow</string>
     <string name="add_proj_button" translatable="false">add_project</string>
     <string name="del_proj_button" translatable="false">delete_project</string>
+    <string name="no_projects_message">У вас ещё нет проектов. Добавьте первый!</string>
     <string name="add_proj">Добавить проект</string>
     <string name="add_task_button" translatable="false">add_task</string>
     <string name="add_task">Добавить задачу</string>
@@ -98,7 +99,7 @@
         <item>Практика — твой союзник!</item>
         <item>Ты — молодец!</item>
     </string-array>
-    <string-array name="logrosTitle">
+    <string-array name="achievementsTitle">
         <item>Мастер времени</item>
         <item>Хобби-маньяк</item>
         <item>Коллекционер задач</item>
@@ -106,7 +107,7 @@
         <item>Коллекционер проектов</item>
         <item>Властелин проектов</item>
     </string-array>
-    <string-array name="logrosBronze">
+    <string-array name="achievementsBronze">
         <item>Всего потрачено часов: </item>
         <item>Создайте хобби: </item>
         <item>Записано целей: </item>
@@ -114,7 +115,7 @@
         <item>Создано проектов: </item>
         <item>Выполнено проектов: </item>
     </string-array>
-    <string-array name="logrosSilver">
+    <string-array name="achievementsSilver">
         <item>Всего потрачено часов: </item>
         <item>Создайте хобби: </item>
         <item>Записано целей: </item>
@@ -122,7 +123,7 @@
         <item>Создано проектов: </item>
         <item>Выполнено проектов: </item>
     </string-array>
-    <string-array name="logrosGold">
+    <string-array name="achievementsGold">
         <item>Всего потрачено часов: </item>
         <item>Создайте хобби: </item>
         <item>Записано целей: </item>
@@ -131,4 +132,5 @@
         <item>Выполнено проектов: </item>
     </string-array>
     <string name="achievements">Достижения</string>
+    <string name="no_hobby_tasks_message">Нет задач для хобби</string>
 </resources>

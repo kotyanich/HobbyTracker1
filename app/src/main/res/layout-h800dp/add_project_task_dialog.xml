@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/add_task_overlay"
+        android:contentDescription="@string/list" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="36dp">
+
+        <TextView
+            android:id="@+id/projectTaskTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_serif_pro_semibold"
+            android:text="@string/add_task"
+            android:textSize="32sp"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/line_4"
+            android:contentDescription="@string/line"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/projectTaskText"
+                android:layout_width="315dp"
+                android:layout_height="51dp"
+                android:backgroundTint="#DEB3A3"
+                android:hint="@string/input_task"
+                android:inputType="text"
+                android:autofillHints="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cancelProjectTask"
+                    android:layout_width="132dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/cancel_add_time"
+                    android:contentDescription="@string/cancel_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="@string/cancel"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:textSize="22sp"
+                    android:layout_marginEnd="5dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/okProjectTask"
+                    android:layout_width="134dp"
+                    android:layout_height="47dp"
+                    android:src="@drawable/ok_add_time"
+                    android:contentDescription="@string/ok_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="@string/ok"
+                    android:fontFamily="@font/source_serif_pro_semibold"
+                    android:textSize="22sp" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

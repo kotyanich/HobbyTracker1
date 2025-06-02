@@ -28,14 +28,14 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="125dp"
             android:src="@drawable/line_11"
-            android:contentDescription="@string/line"/>
+            android:contentDescription="@string/line" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="43dp"
             android:src="@drawable/left_dots"
-            android:contentDescription="@string/pattern"/>
+            android:contentDescription="@string/pattern" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="43dp"
             android:src="@drawable/right_dots"
-            android:contentDescription="@string/pattern"/>
+            android:contentDescription="@string/pattern" />
 
     </FrameLayout>
 
@@ -61,7 +61,7 @@
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginTop="20dp"
             android:src="@drawable/line_6"
-            android:contentDescription="@string/line"/>
+            android:contentDescription="@string/line" />
     </LinearLayout>
 
     <LinearLayout
@@ -74,9 +74,9 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/logrosRecycler"
+            android:id="@+id/achievementsRecycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <FrameLayout
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/line_6"
-            android:contentDescription="@string/line"/>
+            android:contentDescription="@string/line" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -98,8 +98,8 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="34dp"
             android:layout_marginBottom="44dp"
-            android:src="@drawable/mascotlogros"
-            android:contentDescription="@string/mascot"/>
+            android:src="@drawable/mascot_achievements"
+            android:contentDescription="@string/mascot" />
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/bubble2"
-                android:contentDescription="@string/bubble"/>
+                android:contentDescription="@string/bubble" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,7 +135,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/bottom_panel"
-            android:contentDescription="@string/panel"/>
+            android:contentDescription="@string/panel" />
 
         <ImageView
             android:id="@+id/shop"
@@ -144,7 +144,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="12dp"
             android:contentDescription="@string/shop"
-            android:src="@drawable/shop"/>
+            android:src="@drawable/shop" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -153,7 +153,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="18dp"
             android:src="@drawable/profile_active"
-            android:contentDescription="@string/achievements_button"/>
+            android:contentDescription="@string/achievements_button" />
 
         <ImageView
             android:id="@+id/home"
@@ -162,7 +162,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="12dp"
             android:src="@drawable/grey_main"
-            android:contentDescription="@string/home_button"/>
+            android:contentDescription="@string/home_button" />
     </FrameLayout>
 
 </RelativeLayout>

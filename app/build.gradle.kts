@@ -40,7 +40,10 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.compose)
     implementation(libs.calendar)
+    implementation(libs.room.runtime)
+    implementation(libs.work.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    annotationProcessor(libs.room.compiler)
 }

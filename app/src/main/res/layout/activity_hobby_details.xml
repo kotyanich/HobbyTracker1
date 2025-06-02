@@ -390,31 +390,47 @@
 
             <FrameLayout
                 android:layout_width="330dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_height="260dp"
+                android:layout_gravity="center"
+                android:background="@drawable/projects_visible_screen">
 
-                <ImageView
-                    android:id="@+id/taskList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/list"
-                    app:srcCompat="@drawable/projects_visible_screen" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/projectsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/recycler" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/taskItems"
-                    android:layout_width="290dp"
-                    android:layout_height="230dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="33dp"
-                    android:contentDescription="@string/recycler" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/recycler"
+                    android:visibility="gone" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/projRecyclerView"
-                    android:layout_width="330dp"
-                    android:layout_height="260dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:contentDescription="@string/recycler" />
+                <TextView
+                    android:id="@+id/emptyProjectMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_projects_message"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/emptyHobbyTasksMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_hobby_tasks_message"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
 
                 <ImageView
                     android:id="@+id/leftarrow"
@@ -440,7 +456,8 @@
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="#EAE5DE">
+                android:background="#EAE5DE"
+                android:layout_marginTop="16dp">
 
                 <LinearLayout
                     android:id="@+id/projectbuttons"

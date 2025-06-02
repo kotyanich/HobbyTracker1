@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="81dp"
                     app:srcCompat="@drawable/smth11111"
-                    android:contentDescription="@string/pattern"/>
+                    android:contentDescription="@string/pattern" />
 
             </LinearLayout>
 
@@ -48,7 +48,7 @@
                     android:layout_marginStart="31dp"
                     android:layout_marginTop="25dp"
                     app:srcCompat="@drawable/cactus_ico"
-                    android:contentDescription="@string/ico"/>
+                    android:contentDescription="@string/ico" />
 
                 <LinearLayout
                     android:layout_width="266dp"
@@ -56,22 +56,25 @@
                     android:orientation="vertical"
                     android:layout_marginStart="125dp"
                     android:layout_marginTop="30dp">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/hobby"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/source_serif_pro_semibold"
                             android:textSize="36sp"
-                            android:src="@drawable/line_4"/>
+                            android:src="@drawable/line_4" />
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:src="@drawable/line_4"
-                            android:contentDescription="@string/line"/>
+                            android:contentDescription="@string/line" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -80,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="95dp"
                     app:srcCompat="@drawable/dots1"
-                    android:contentDescription="@string/pattern"/>
+                    android:contentDescription="@string/pattern" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -88,27 +91,31 @@
                     android:orientation="vertical"
                     android:layout_marginTop="180dp"
                     android:layout_marginStart="16dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/source_serif_pro_semibold"
                         android:text="@string/activity"
-                        android:textSize="32sp"/>
+                        android:textSize="32sp" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/line_5"
-                        android:contentDescription="@string/line"/>
+                        android:contentDescription="@string/line" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
                         android:text="@string/activity_descr"
                         android:fontFamily="@font/source_serif_pro"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </FrameLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/total_1_"
-                        android:contentDescription="@string/activity_block"/>
+                        android:contentDescription="@string/activity_block" />
 
                     <TextView
                         android:id="@+id/wholeTimeInfo"
@@ -146,7 +153,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/month"
-                        android:contentDescription="@string/activity_block"/>
+                        android:contentDescription="@string/activity_block" />
 
                     <TextView
                         android:id="@+id/monthInfo"
@@ -177,7 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/per_week"
-                        android:contentDescription="@string/activity_block"/>
+                        android:contentDescription="@string/activity_block" />
 
                     <TextView
                         android:id="@+id/weekInfo"
@@ -199,7 +206,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:srcCompat="@drawable/per_day"
-                        android:contentDescription="@string/activity_block"/>
+                        android:contentDescription="@string/activity_block" />
 
                     <TextView
                         android:id="@+id/dayInfo"
@@ -235,7 +242,7 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:fontFamily="@font/source_serif_pro_semibold"
                     android:text="@string/add_time"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
             </FrameLayout>
 
             <LinearLayout
@@ -257,14 +264,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/line_5"
-                    android:contentDescription="@string/line"/>
+                    android:contentDescription="@string/line" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/source_serif_pro"
                     android:textSize="20sp"
                     android:text="@string/planning_descr"
-                    android:layout_marginTop="25dp"/>
+                    android:layout_marginTop="25dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -290,7 +298,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
                             app:srcCompat="@drawable/tasks_button"
-                            android:contentDescription="@string/task_button"/>
+                            android:contentDescription="@string/task_button" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -312,7 +320,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
                             app:srcCompat="@drawable/projects_button"
-                            android:contentDescription="@string/task_button"/>
+                            android:contentDescription="@string/task_button" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -339,7 +347,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/tasks_button"
-                            android:contentDescription="@string/proj_button"/>
+                            android:contentDescription="@string/proj_button" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -361,7 +369,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
                             app:srcCompat="@drawable/projects_button"
-                            android:contentDescription="@string/proj_button"/>
+                            android:contentDescription="@string/proj_button" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -375,29 +383,48 @@
             </LinearLayout>
 
             <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp">
-                <ImageView
-                    android:id="@+id/taskList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/projects_visible_screen"
-                    android:contentDescription="@string/list"/>
+                android:id="@+id/borderedContainer"
+                android:layout_width="380dp"
+                android:layout_height="298dp"
+                android:layout_gravity="center"
+                android:background="@drawable/projects_visible_screen">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/projectsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/recycler" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/taskItems"
-                    android:layout_width="370dp"
-                    android:layout_height="290dp"
-                    android:contentDescription="@string/recycler"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/recycler"
+                    android:visibility="gone" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/projRecyclerView"
-                    android:layout_width="380dp"
-                    android:layout_height="298dp"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/recycler" />
+                <TextView
+                    android:id="@+id/emptyProjectMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_projects_message"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/emptyHobbyTasksMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_hobby_tasks_message"
+                    android:textSize="16sp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/leftarrow"
@@ -406,7 +433,7 @@
                     android:layout_marginStart="28dp"
                     android:layout_marginTop="34dp"
                     app:srcCompat="@drawable/leftarrow"
-                    android:contentDescription="@string/left_arrow"/>
+                    android:contentDescription="@string/left_arrow" />
 
                 <ImageView
                     android:id="@+id/rightarrow"
@@ -416,7 +443,7 @@
                     android:layout_marginTop="34dp"
                     android:layout_marginEnd="70dp"
                     app:srcCompat="@drawable/rightarrow"
-                    android:contentDescription="@string/right_arrow"/>
+                    android:contentDescription="@string/right_arrow" />
             </FrameLayout>
 
             <FrameLayout
@@ -424,7 +451,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#EAE5DE"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="16dp">
 
                 <LinearLayout
                     android:id="@+id/projectbuttons"
@@ -443,7 +471,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="#ECE7E0"
                             android:src="@drawable/add_task_button_1_"
-                            android:contentDescription="@string/add_proj_button"/>
+                            android:contentDescription="@string/add_proj_button" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -461,7 +489,7 @@
                         android:layout_marginStart="8dp"
                         android:backgroundTint="#ECE7E0"
                         android:src="@drawable/deleteproj"
-                        android:contentDescription="@string/del_proj_button"/>
+                        android:contentDescription="@string/del_proj_button" />
                 </LinearLayout>
 
                 <FrameLayout
@@ -475,7 +503,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/frame_288916_1_"
-                        android:contentDescription="@string/add_task_button"/>
+                        android:contentDescription="@string/add_task_button" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -486,6 +514,7 @@
                         android:textSize="24sp" />
                 </FrameLayout>
             </FrameLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -506,33 +535,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/line_5"
-                    android:contentDescription="@string/line"/>
+                    android:contentDescription="@string/line" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:textSize="20sp"
                     android:fontFamily="@font/source_serif_pro"
-                    android:text="@string/url_descr"/>
+                    android:text="@string/url_descr" />
             </LinearLayout>
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp">
+
                 <ImageView
                     android:id="@+id/ideasList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/projects_visible_screen"
-                    android:contentDescription="@string/list"/>
+                    android:contentDescription="@string/list" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/ideasItems"
                     android:layout_width="340dp"
                     android:layout_height="260dp"
                     android:layout_margin="20dp"
-                    android:contentDescription="@string/recycler"/>
+                    android:contentDescription="@string/recycler" />
             </FrameLayout>
+
             <FrameLayout
                 android:id="@+id/ideaaddbutton"
                 android:layout_width="wrap_content"
@@ -547,7 +581,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/frame_288916_1_"
-                    android:contentDescription="@string/add_task_button"/>
+                    android:contentDescription="@string/add_task_button" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -571,7 +605,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/bottom_panel"
-            android:contentDescription="@string/panel"/>
+            android:contentDescription="@string/panel" />
 
         <ImageView
             android:id="@+id/home"

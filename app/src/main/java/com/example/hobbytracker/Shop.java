@@ -47,28 +47,30 @@ public class Shop extends AppCompatActivity {
         String setBalance = getString(R.string.money, getSavedBalance());
         updateBalanceText(getSavedBalance());
         balanceText.setText(setBalance);
-        for (int i =0; i < images.length; i++)
+        for (int i = 0; i < images.length; i++)
             shopItems.add(new ShopItem(images[i]));
         RecyclerView shopRecycler = findViewById(R.id.recycler);
         shopRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         shopRecycler.setAdapter(new ShopAdapter(shopItems, this, this, balanceText));
         ImageView home = findViewById(R.id.home);
-        home.setOnClickListener(v ->{
+        home.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
-        ImageView achievements = findViewById(R.id.logros);
-        achievements.setOnClickListener(v ->{
+        ImageView achievements = findViewById(R.id.achievements);
+        achievements.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.example.hobbytracker.achievements.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
     }
+
     private int getSavedBalance() {
         SharedPreferences prefs = getSharedPreferences("AchData", MODE_PRIVATE);
         return prefs.getInt("Balance", 0);
     }
+
     public void updateBalanceText(int balance) {
         balanceText.setText(getString(R.string.money, balance));
     }
